@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/introduction_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/device_activated_bg">
+
+
+    <ImageView
+        android:id="@+id/imageview_device_activated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/Android_Design_rhythmHalf"
+        android:layout_marginTop="@dimen/Android_Design_rhythmHalf"
+        android:src="@drawable/ic_tick" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview_device_activated"
+        android:layout_marginLeft="@dimen/Android_Design_rhythmHalf"
+        android:layout_marginTop="@dimen/Android_Design_rhythmThird"
+        android:text="@string/device_activated_announce"
+        android:textAppearance="@style/App.TextAppearance.ExtraLargeGrey" />
+
+    <com.cinatic.demo2.views.customs.ProgressButton
+        android:id="@+id/progressbutton_device_activated_ok"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/Android_Design_rhythmThird"
+        android:layout_marginLeft="@dimen/Android_Design_rhythmThird"
+        android:layout_marginRight="@dimen/Android_Design_rhythmThird"
+        android:background="@drawable/button_accent_round_all"
+        android:text="@string/ok_label"
+        android:textColor="@color/white" />
+</RelativeLayout>

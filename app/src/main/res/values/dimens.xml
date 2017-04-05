@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="Android_Design_rhythmThree">144dp</dimen>
+    <dimen name="Android_Design_rhythmTwoAndAHalf">120dp</dimen>
+    <dimen name="Android_Design_rhythmDouble">96dp</dimen>
+    <dimen name="Android_Design_rhythmOneAndAHalf">72dp</dimen>
+    <dimen name="Android_Design_rhythmOneAndASixth">56dp</dimen>
+    <dimen name="Android_Design_rhythm">48dp</dimen>
+    <dimen name="Android_Design_rhythmTwoThirds">32dp</dimen>
+    <dimen name="Android_Design_rhythmHalf">24dp</dimen>
+    <dimen name="Android_Design_rhythmThird">16dp</dimen>
+    <dimen name="Android_Design_rhythmSixth">8dp</dimen>
+    <dimen name="Android_Design_rhythmTwelfth">4dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="Design_textSizeVerySmall">8sp</dimen>
+    <dimen name="Design_textSizeMicro">12sp</dimen>
+    <dimen name="Design_textSizeSmall">14sp</dimen>
+    <dimen name="Design_textSizeNormal">16sp</dimen>
+    <dimen name="Design_textSizeMedium">18sp</dimen>
+    <dimen name="Design_textSizeLarge">20sp</dimen>
+    <dimen name="Design_textSizeExtraLarge">34sp</dimen>
+
+    <dimen name="Border_Height">1sp</dimen>
+    <dimen name="BottomTab_Height">60dp</dimen>
+</resources>

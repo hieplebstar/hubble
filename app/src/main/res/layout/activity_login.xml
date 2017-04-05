@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/login_announce"
+                android:textAllCaps="true"
+                android:textAppearance="@style/App.TextAppearance.LargeGrey" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/Border_Height"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/login_with" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/Border_Height"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:background="@color/gray" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/Android_Design_rhythm"
+                    android:layout_height="@dimen/Android_Design_rhythm"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_facebook_inactive" />
+
+                <ImageView
+                    android:layout_width="@dimen/Android_Design_rhythm"
+                    android:layout_height="@dimen/Android_Design_rhythm"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_google_inactive" />
+
+                <ImageView
+                    android:layout_width="@dimen/Android_Design_rhythm"
+                    android:layout_height="@dimen/Android_Design_rhythm"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_twitter_inactive" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/Border_Height"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/or" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/Border_Height"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:background="@color/gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/Android_Design_rhythmThird"
+                    android:background="@drawable/bg_white_border_all"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/Android_Design_rhythmTwoThirds"
+                        android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/Android_Design_rhythmSixth"
+                        android:src="@drawable/ic_email" />
+
+                    <EditText
+                        android:id="@+id/username_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/Android_Design_rhythmSixth"
+                        android:background="@color/transparent"
+                        android:gravity="start|center_vertical"
+                        android:hint="@string/email_label"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/Android_Design_rhythmSixth"
+                    android:background="@drawable/bg_white_border_all"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/Android_Design_rhythmTwoThirds"
+                        android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/Android_Design_rhythmSixth"
+                        android:src="@drawable/ic_password" />
+
+                    <EditText
+                        android:id="@+id/password_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/Android_Design_rhythmSixth"
+                        android:background="@color/transparent"
+                        android:gravity="start|center_vertical"
+                        android:hint="@string/pass_label"
+                        android:inputType="textPassword" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_remember_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/remember_me"
+                        android:textAppearance="@style/App.TextAppearance.SmallGrey"
+                        android:textColor="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/forgot_pass_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:gravity="start|center_vertical"
+                        android:maxLines="1"
+                        android:text="@string/forgot_pass"
+                        android:textAppearance="@style/App.TextAppearance.SmallGrey" />
+                </RelativeLayout>
+
+                <com.cinatic.demo2.views.customs.ProgressButton
+                    android:id="@+id/progressbutton_login_continues"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/Android_Design_rhythmHalf"
+                    android:background="@drawable/button_accent_round_all"
+                    android:text="@string/login_label"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

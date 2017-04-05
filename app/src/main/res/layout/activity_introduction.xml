@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/introduction_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/indicator_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Android_Design_rhythmHalf"
+        android:layout_above="@+id/progressbutton_introduction_next"
+        app:ci_drawable="@drawable/circle_accent_radius" />
+
+    <com.cinatic.demo2.views.customs.ProgressButton
+        android:id="@+id/progressbutton_introduction_next"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/Android_Design_rhythmThird"
+        android:background="@drawable/button_accent_round_all"
+        android:text="@string/next_label"
+        android:textColor="@color/white" />
+</RelativeLayout>

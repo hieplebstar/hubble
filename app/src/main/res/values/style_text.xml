@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="App.TextAppearance.VerySmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/Design_textSizeVerySmall</item>
+    </style>
+
+    <style name="App.TextAppearance.Micro" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/Design_textSizeMicro</item>
+    </style>
+
+    <style name="App.TextAppearance.Small" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/Design_textSizeSmall</item>
+    </style>
+
+    <style name="App.TextAppearance.Medium" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/Design_textSizeNormal</item>
+    </style>
+
+    <style name="App.TextAppearance.Large" parent="@android:style/TextAppearance.Large">
+        <item name="android:textSize">@dimen/Design_textSizeLarge</item>
+    </style>
+
+    <style name="App.TextAppearance.Headline" parent="@android:style/TextAppearance.Large">
+        <item name="android:textSize">@dimen/Design_textSizeLarge</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="App.TextAppearance.ExtraLarge" parent="@android:style/TextAppearance.Large">
+        <item name="android:textSize">@dimen/Design_textSizeExtraLarge</item>
+    </style>
+
+    <style name="App.TextAppearance.Toolbar.Title" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/Design_textSizeMedium</item>
+    </style>
+
+    <style name="App.TextAppearance.LargeBlack" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="App.TextAppearance.Toolbar.MultiLineTitle" parent="App.TextAppearance.Headline">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="App.TextAppearance.SmallGrey" parent="App.TextAppearance.Small">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.VerySmallGrey" parent="App.TextAppearance.VerySmall">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.MicroGrey" parent="App.TextAppearance.Micro">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.MicroBlack" parent="App.TextAppearance.Micro">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="App.TextAppearance.MicroLightGray" parent="App.TextAppearance.Micro">
+        <item name="android:textColor">@color/light_gray</item>
+    </style>
+
+    <style name="App.TextAppearance.MicroYellow" parent="App.TextAppearance.Micro">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="App.TextAppearance.SmallBlack" parent="App.TextAppearance.Small">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="App.TextAppearance.SmallRed" parent="App.TextAppearance.Small">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="App.TextAppearance.MediumBlack" parent="App.TextAppearance.Medium">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="App.TextAppearance.ExtraLargeBlack" parent="App.TextAppearance.ExtraLarge">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="App.TextAppearance.ExtraLargeRed" parent="App.TextAppearance.ExtraLarge">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="App.TextAppearance.MediumGrey" parent="App.TextAppearance.Medium">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.MediumRed" parent="App.TextAppearance.Medium">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="App.TextAppearance.MediumWhite" parent="App.TextAppearance.Medium">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="App.TextAppearance.SmallWhite" parent="App.TextAppearance.Small">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="App.TextAppearance.SmallYellow" parent="App.TextAppearance.Small">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="App.TextAppearance.MediumYellow" parent="App.TextAppearance.Medium">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="App.TextAppearance.LargeGrey" parent="App.TextAppearance.Large">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.LargeRed" parent="App.TextAppearance.Large">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="App.TextAppearance.LargeWhite" parent="App.TextAppearance.Large">
+        <item name="android:textColor">@color/white_text</item>
+    </style>
+
+    <style name="App.TextAppearance.ExtraLargeGrey" parent="App.TextAppearance.ExtraLarge">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.ExtraLargeYellow" parent="App.TextAppearance.ExtraLarge">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="App.TextAppearance.ExtraLargeWhite" parent="App.TextAppearance.ExtraLarge">
+        <item name="android:textColor">@color/white_text</item>
+    </style>
+
+    <style name="App.TextAppearance.HeadlineBlack" parent="App.TextAppearance.Headline">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="App.TextAppearance.Form.Subheading" parent="App.TextAppearance.Medium">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.Form.SubSubheading" parent="App.TextAppearance.Small">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="App.TextAppearance.DialogHeader" parent="App.TextAppearance.Large">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="App.TextAppearance.BottomTab" parent="App.TextAppearance.SmallGrey">
+        <item name="android:inputType">textCapSentences</item>
+    </style>
+    <style name="App.TextAppearance.actionbarSubtitle" parent="App.TextAppearance.Micro">
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+</resources>

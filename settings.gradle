@@ -1,0 +1,2 @@
+include ':app', ':android_kit'
+project(':android_kit').projectDir = new File('libraries/android_kit')

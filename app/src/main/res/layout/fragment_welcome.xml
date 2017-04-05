@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/introduction_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome_bg">
+
+    <com.cinatic.demo2.views.customs.ProgressButton
+        android:id="@+id/progressbutton_welcome_add"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+        android:layout_above="@+id/progressbutton_welcome_buy"
+        android:layout_marginBottom="@dimen/Android_Design_rhythmThird"
+        android:layout_marginLeft="@dimen/Android_Design_rhythmThird"
+        android:layout_marginRight="@dimen/Android_Design_rhythmThird"
+        android:background="@drawable/button_accent_round_all"
+        android:text="@string/add_device_label"
+        android:textColor="@color/white" />
+
+    <com.cinatic.demo2.views.customs.ProgressButton
+        android:id="@+id/progressbutton_welcome_buy"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/Android_Design_rhythmThird"
+        android:layout_marginLeft="@dimen/Android_Design_rhythmThird"
+        android:layout_marginRight="@dimen/Android_Design_rhythmThird"
+        android:background="@drawable/button_orange_round_all"
+        android:text="@string/buy_label"
+        android:textColor="@color/white" />
+</RelativeLayout>

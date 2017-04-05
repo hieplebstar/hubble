@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">hubble</string>
+
+    <!--Login-->
+    <string name="login_label">Login</string>
+    <string name="email_label">Email</string>
+    <string name="pass_label">Password</string>
+    <string name="forgot_pass">Forgot Password?</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="login_announce">login to your account</string>
+    <string name="login_with">Login with</string>
+    <string name="or">Or</string>
+
+    <!--Register-->
+    <string name="register_label">Register</string>
+    <string name="confirm_pass_label">Confirm Password</string>
+    <string name="next_label">Next</string>
+    <string name="agree_label">agree to our terms</string>
+    <string name="privacy_policy_label">Privacy Rules</string>
+    <string name="have_an_account">Already have an account</string>
+    <string name="register_announce">create an account</string>
+    <string name="agree_announce">By click next, you %1$s and that you have read our %2$s.</string>
+
+    <!--Setup-->
+    <string name="add_device_label">Add a device</string>
+    <string name="buy_label">Buy Now</string>
+    <string name="ok_label">Ok</string>
+    <string name="device_activated_announce">Device activated!</string>
+
+    <!--Devices-->
+    <string name="devices_label">Devices</string>
+</resources>

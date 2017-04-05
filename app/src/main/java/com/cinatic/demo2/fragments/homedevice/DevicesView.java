@@ -7,6 +7,6 @@ import java.util.List;
 /**
  * Created by HiepLe on 7/6/2016.
  */
-public interface DeviceView {
+public interface DevicesView {
     void showDeviceList(List<DeviceListItem> deviceList);
 }

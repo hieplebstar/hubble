@@ -10,7 +10,7 @@ import org.greenrobot.eventbus.Subscribe;
 /**
  * Created by HiepLe on 7/6/2016.
  */
-public class DevicePresenter extends EventListeningPresenter<DeviceView> {
+public class DevicesPresenter extends EventListeningPresenter<DevicesView> {
 
     @Subscribe
     public void onDeviceListDoReturnEvent(DeviceListDoReturnEvent event){

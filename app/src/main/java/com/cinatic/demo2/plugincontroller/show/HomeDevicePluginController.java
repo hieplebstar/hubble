@@ -4,12 +4,12 @@ import com.android.appkit.ActionBarMode;
 import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.base.fragment.AnimatingFragmentPluginController;
 import com.cinatic.demo2.events.show.ShowHomeDeviceEvent;
-import com.cinatic.demo2.fragments.homedevice.DeviceFragment;
+import com.cinatic.demo2.fragments.homedevice.DevicesFragment;
 import com.cinatic.demo2.hubble.R;
 
 import org.greenrobot.eventbus.Subscribe;
 
-public class HomeDevicePluginController extends AnimatingFragmentPluginController<ShowHomeDeviceEvent, DeviceFragment> {
+public class HomeDevicePluginController extends AnimatingFragmentPluginController<ShowHomeDeviceEvent, DevicesFragment> {
 
     @Subscribe
     public void onEvent(ShowHomeDeviceEvent event) {
@@ -32,7 +32,7 @@ public class HomeDevicePluginController extends AnimatingFragmentPluginControlle
     }
 
     @Override
-    protected DeviceFragment createFragment(ShowHomeDeviceEvent event) {
-        return DeviceFragment.newInstance();
+    protected DevicesFragment createFragment(ShowHomeDeviceEvent event) {
+        return DevicesFragment.newInstance();
     }
 }

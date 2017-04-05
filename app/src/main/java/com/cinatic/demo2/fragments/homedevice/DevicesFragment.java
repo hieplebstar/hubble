@@ -17,28 +17,28 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class DeviceFragment extends ButterKnifeFragment implements DeviceView, DeviceListAdapter.OnClickItemListener{
+public class DevicesFragment extends ButterKnifeFragment implements DevicesView, DeviceListAdapter.OnClickItemListener{
 
-    @BindView(R.id.recyclerview_home_device)
+    @BindView(R.id.recyclerview_home_devices)
     RecyclerView mRecyclerView;
 
-    private DevicePresenter mPresenter;
+    private DevicesPresenter mPresenter;
     private DeviceListAdapter mAdapter;
 
-    public static DeviceFragment newInstance() {
-        DeviceFragment fragment = new DeviceFragment();
+    public static DevicesFragment newInstance() {
+        DevicesFragment fragment = new DevicesFragment();
         return fragment;
     }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new DevicePresenter();
+        mPresenter = new DevicesPresenter();
         mAdapter = new DeviceListAdapter();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_device, container, false);
+        View view = inflater.inflate(R.layout.fragment_devices, container, false);
         return view;
     }
 

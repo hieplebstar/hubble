@@ -3,6 +3,7 @@ package com.cinatic.demo2.activities.main;
 
 import com.android.appkit.presenter.EventListeningPresenter;
 
+import com.cinatic.demo2.events.show.ShowBottomTabEvent;
 import com.cinatic.demo2.events.show.ShowSetupWelcomeEvent;
 
 /**
@@ -10,6 +11,7 @@ import com.cinatic.demo2.events.show.ShowSetupWelcomeEvent;
  */
 public class MainPresenter extends EventListeningPresenter<MainView>{
     MainPresenter(){
-        post(new ShowSetupWelcomeEvent());
+//        post(new ShowSetupWelcomeEvent());
+        post(new ShowBottomTabEvent());
     }
 }

@@ -49,6 +49,7 @@ public class DevicesFragment extends ButterKnifeFragment implements DevicesView,
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setListener(this);
         mPresenter.start(this);
         loadData();
     }

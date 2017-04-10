@@ -29,4 +29,7 @@
 
     <!--Devices-->
     <string name="devices_label">Devices</string>
+
+    <!--Device feature-->
+    <string name="tap_to_talk">Tap To Talk</string>
 </resources>

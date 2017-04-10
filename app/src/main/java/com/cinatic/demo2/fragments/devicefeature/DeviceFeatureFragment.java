@@ -5,27 +5,31 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.base.fragment.ButterKnifeFragment;
 import com.cinatic.demo2.fragments.homedevice.DevicesPresenter;
 import com.cinatic.demo2.fragments.homedevice.DevicesView;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.models.DeviceListItem;
 import com.cinatic.demo2.views.adapters.DeviceListAdapter;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
+import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnTouch;
 
-public class DeviceFeatureFragment extends ButterKnifeFragment implements DevicesView, DeviceListAdapter.OnClickItemListener{
+public class DeviceFeatureFragment extends ButterKnifeFragment{
 
-    @BindView(R.id.recyclerview_home_devices)
-    RecyclerView mRecyclerView;
-
-    private DevicesPresenter mPresenter;
-    private DeviceListAdapter mAdapter;
+    @BindView(R.id.linearlayout_feature_container_device_feature)
+    LinearLayout mFeatureLinearLayout;
 
     public static DeviceFeatureFragment newInstance() {
         DeviceFeatureFragment fragment = new DeviceFeatureFragment();
@@ -34,45 +38,55 @@ public class DeviceFeatureFragment extends ButterKnifeFragment implements Device
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new DevicesPresenter();
-        mAdapter = new DeviceListAdapter();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_devices, container, false);
+        View view = inflater.inflate(R.layout.fragment_device_feature, container, false);
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-        mPresenter.start(this);
-        loadData();
+        initMenu();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mPresenter.stop();
     }
 
-    @Override
-    public void showDeviceList(List<DeviceListItem> deviceList) {
-        if (deviceList == null) return;
-        mAdapter.setItems(deviceList);
-    }
+    public void initMenu() {
+        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(getActivity());
 
-    private void loadData() {
-        mPresenter.loadDeviceList();
-    }
+        ImageView mMusicImageView = new ImageView(getActivity());
+        mMusicImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_music));
+        SubActionButton mMucisSAB = itemBuilder.setContentView(mMusicImageView).build();
 
-    @Override
-    public void onClickDevice(DeviceListItem item) {
-        mPresenter.showDetail();
+        ImageView mTempImageView = new ImageView(getActivity());
+        mTempImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_temp));
+        SubActionButton mTempSAB = itemBuilder.setContentView(mTempImageView).build();
+
+        ImageView mRecordImageView = new ImageView(getActivity());
+        mRecordImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_record));
+        SubActionButton mRecordSAB = itemBuilder.setContentView(mRecordImageView).build();
+
+        ImageView mSnapshotImageView = new ImageView(getActivity());
+        mSnapshotImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_snapshot));
+        SubActionButton mSnapshotSAB = itemBuilder.setContentView(mSnapshotImageView).build();
+
+        ImageView mMuteImageView = new ImageView(getActivity());
+        mMuteImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_mute));
+        SubActionButton mMuteSAB = itemBuilder.setContentView(mMuteImageView).build();
+
+        FloatingActionMenu mMainFeatureMenu = new FloatingActionMenu.Builder(getActivity())
+                .addSubActionView(mMucisSAB)
+                .addSubActionView(mTempSAB)
+                .addSubActionView(mRecordSAB)
+                .addSubActionView(mSnapshotSAB)
+                .addSubActionView(mMuteSAB)
+                .attachTo(mFeatureLinearLayout)
+                .build();
     }
 }

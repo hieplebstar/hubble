@@ -35,5 +35,7 @@ dependencies {
     provided "org.projectlombok:lombok:1.16.6"
     apt "org.projectlombok:lombok:1.16.6"
     compile 'me.relex:circleindicator:1.2.2@aar'
+    compile 'com.badoo.mobile:android-weak-handler:1.1'
+    compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
     testCompile 'junit:junit:4.12'
 }

@@ -35,4 +35,24 @@ public class DeviceFeaturePluginController extends AnimatingFragmentPluginContro
     protected DeviceFeatureFragment createFragment(ShowDeviceFeatureEvent event) {
         return DeviceFeatureFragment.newInstance();
     }
+
+    @Override
+    protected int createEnterAnimationResId() {
+        return 0;
+    }
+
+    @Override
+    protected int createExitAnimationResId() {
+        return 0;
+    }
+
+    @Override
+    protected int createPopEnterAnimationResId() {
+        return 0;
+    }
+
+    @Override
+    protected int createPopExitAnimationResId() {
+        return 0;
+    }
 }

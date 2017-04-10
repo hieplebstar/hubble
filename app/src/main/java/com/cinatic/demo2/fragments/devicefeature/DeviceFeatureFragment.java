@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.badoo.mobile.util.WeakHandler;
 import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.base.fragment.ButterKnifeFragment;
 import com.cinatic.demo2.fragments.homedevice.DevicesPresenter;
@@ -24,12 +25,16 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import butterknife.OnTouch;
 
 public class DeviceFeatureFragment extends ButterKnifeFragment{
 
     @BindView(R.id.linearlayout_feature_container_device_feature)
     LinearLayout mFeatureLinearLayout;
+
+    FloatingActionMenu mMainFeatureMenu;
+    private DeviceFeaturePresenter mPresenter;
 
     public static DeviceFeatureFragment newInstance() {
         DeviceFeatureFragment fragment = new DeviceFeatureFragment();
@@ -38,6 +43,7 @@ public class DeviceFeatureFragment extends ButterKnifeFragment{
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPresenter = new DeviceFeaturePresenter();
     }
 
     @Override
@@ -55,6 +61,27 @@ public class DeviceFeatureFragment extends ButterKnifeFragment{
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if(mMainFeatureMenu == null) return;
+        mMainFeatureMenu.close(false);
+        mMainFeatureMenu = null;
+    }
+
+    @OnTouch(R.id.linearlayout_feature_container_device_feature)
+    boolean onMenuTouch(View view, MotionEvent motionEvent){
+        switch (motionEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                mFeatureLinearLayout.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_hold_radius));
+                break;
+            case MotionEvent.ACTION_UP:
+                mFeatureLinearLayout.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_accent_radius));
+                break;
+        }
+        return true;
+    }
+
+    @OnClick(R.id.imageview_minimize_device_feature)
+    void onMinimizeClick(){
+        mPresenter.showPreview();
     }
 
     public void initMenu() {
@@ -85,7 +112,7 @@ public class DeviceFeatureFragment extends ButterKnifeFragment{
         SubActionButton mMuteSAB = itemBuilder.setContentView(mMuteImageView).build();
         mMuteSAB.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_accent_radius));
 
-        FloatingActionMenu mMainFeatureMenu = new FloatingActionMenu.Builder(getActivity())
+        mMainFeatureMenu = new FloatingActionMenu.Builder(getActivity())
                 .addSubActionView(mMusicSAB)
                 .addSubActionView(mTempSAB)
                 .addSubActionView(mRecordSAB)
@@ -95,5 +122,13 @@ public class DeviceFeatureFragment extends ButterKnifeFragment{
                 .setEndAngle(10)
                 .attachTo(mFeatureLinearLayout)
                 .build();
+
+        new WeakHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(mMainFeatureMenu == null) return;
+                mMainFeatureMenu.open(true);
+            }
+        }, 200);
     }
 }

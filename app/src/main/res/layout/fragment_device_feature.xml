@@ -48,4 +48,13 @@
             android:text="@string/tap_to_talk"
             android:textAppearance="@style/App.TextAppearance.MediumWhite" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageview_minimize_device_feature"
+        android:layout_width="@dimen/Android_Design_rhythm"
+        android:layout_height="@dimen/Android_Design_rhythm"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/Android_Design_rhythmThird"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_mini_video" />
 </RelativeLayout>

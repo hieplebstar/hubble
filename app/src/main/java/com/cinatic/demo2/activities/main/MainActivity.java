@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.appkit.ActionBarMode;
 import com.android.appkit.activity.BaseFragmentActivity;
@@ -23,6 +24,8 @@ public class MainActivity extends BaseFragmentActivity implements MainView{
     View mMainContainer;
     @BindView(R.id.framelayout_tab_main)
     View mBottomTabContainer;
+    @BindView(R.id.textview_title_main)
+    TextView mTitleTextView;
 
     private Unbinder mUnbinder;
     private MainPresenter mPresenter;
@@ -63,6 +66,11 @@ public class MainActivity extends BaseFragmentActivity implements MainView{
                 mToolbar.setVisibility(View.GONE);
                 mBottomTabContainer.setVisibility(View.GONE);
                 break;
+            case OVERLAY_MODE:
+                mToolbar.setVisibility(View.VISIBLE);
+                mBottomTabContainer.setVisibility(View.VISIBLE);
+                break;
         }
+        mTitleTextView.setText(title);
     }
 }

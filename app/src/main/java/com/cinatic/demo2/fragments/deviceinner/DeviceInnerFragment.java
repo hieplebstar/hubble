@@ -58,12 +58,12 @@ public class DeviceInnerFragment extends ButterKnifeFragment implements DeviceIn
         super.onViewCreated(view, savedInstanceState);
 
         LinearLayoutManager horizontalLinearLayoutManager = new LinearLayoutManager(getActivity());
-        horizontalLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        horizontalLinearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mReplayRecyclerView.setLayoutManager(horizontalLinearLayoutManager);
         mReplayRecyclerView.setAdapter(mReplayAdapter);
 
         LinearLayoutManager verticalLinearLayoutManager = new LinearLayoutManager(getActivity());
-        verticalLinearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        verticalLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mTimelineRecyclerView.setLayoutManager(verticalLinearLayoutManager);
         mTimelineRecyclerView.setAdapter(mTimelineAdapter);
 

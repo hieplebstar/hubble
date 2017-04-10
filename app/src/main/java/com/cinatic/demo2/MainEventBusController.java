@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.cinatic.demo2.plugincontroller.DeviceListPluginController;
+import com.cinatic.demo2.plugincontroller.DevicePluginController;
 import com.cinatic.demo2.plugincontroller.show.BottomTabPluginController;
 import com.cinatic.demo2.plugincontroller.show.DeviceActivatedPluginController;
 import com.cinatic.demo2.plugincontroller.show.DeviceFeaturePluginController;
@@ -29,7 +30,7 @@ public class MainEventBusController extends EventBusController {
                 new SetupWelcomePluginController(),
                 new DeviceActivatedPluginController(),
                 new DeviceListPluginController(),
-                new DeviceInnerPluginController()
+                new DevicePluginController()
         });
     }
 }

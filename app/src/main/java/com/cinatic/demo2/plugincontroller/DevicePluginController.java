@@ -17,7 +17,7 @@ import java.util.List;
  * Created by HiepLe on 4/5/2017.
  */
 
-public class DeviceInnerPluginController extends EventPluginController{
+public class DevicePluginController extends EventPluginController{
     @Subscribe
     public void onDeviceTimelineListDoLoadEvent(DeviceTimelineListDoLoadEvent event) {
         post(new DeviceTimelineListDoReturnEvent(createMockTimelineData()));

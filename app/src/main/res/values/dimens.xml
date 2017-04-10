@@ -28,4 +28,5 @@
 
     <dimen name="Border_Height">1sp</dimen>
     <dimen name="BottomTab_Height">60dp</dimen>
+    <dimen name="Replay_list_Height">60dp</dimen>
 </resources>

@@ -99,6 +99,10 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="App.TextAppearance.MediumAccent" parent="App.TextAppearance.Medium">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="App.TextAppearance.SmallWhite" parent="App.TextAppearance.Small">
         <item name="android:textColor">@android:color/white</item>
     </style>

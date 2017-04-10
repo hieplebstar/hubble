@@ -9,6 +9,8 @@ import java.util.List;
 import com.cinatic.demo2.plugincontroller.DeviceListPluginController;
 import com.cinatic.demo2.plugincontroller.show.BottomTabPluginController;
 import com.cinatic.demo2.plugincontroller.show.DeviceActivatedPluginController;
+import com.cinatic.demo2.plugincontroller.show.DeviceFeaturePluginController;
+import com.cinatic.demo2.plugincontroller.show.DeviceInnerPluginController;
 import com.cinatic.demo2.plugincontroller.show.HomeDevicePluginController;
 import com.cinatic.demo2.plugincontroller.show.SetupWelcomePluginController;
 
@@ -21,10 +23,13 @@ public class MainEventBusController extends EventBusController {
     protected List<Object> createDefaultSubscribers() {
         return Arrays.asList(new Object[]{
                 new BottomTabPluginController(),
+                new DeviceInnerPluginController(),
+                new DeviceFeaturePluginController(),
                 new HomeDevicePluginController(),
                 new SetupWelcomePluginController(),
                 new DeviceActivatedPluginController(),
-                new DeviceListPluginController()
+                new DeviceListPluginController(),
+                new DeviceInnerPluginController()
         });
     }
 }

@@ -14,8 +14,8 @@
             android:id="@+id/imageview_device_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/camera_bg"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            android:src="@drawable/camera_default_bg" />
 
         <ImageView
             android:layout_width="@dimen/Android_Design_rhythm"
@@ -23,7 +23,8 @@
             android:layout_alignBottom="@+id/imageview_device_item"
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/Android_Design_rhythmThird"
-            android:src="@drawable/ic_camera" />
+            android:src="@drawable/ic_camera"
+            android:tint="@color/white" />
     </RelativeLayout>
 
     <View

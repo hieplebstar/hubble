@@ -10,12 +10,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.activities.main.MainActivity;
 import com.cinatic.demo2.views.adapters.SliderAdapter;
 import me.relex.circleindicator.CircleIndicator;
 
-public class IntroductionActivity extends AppCompatActivity {
+public class IntroductionActivity extends CalligraphyFontActivity {
 
     @BindView(R.id.viewpager_introduction)
     ViewPager mPager;

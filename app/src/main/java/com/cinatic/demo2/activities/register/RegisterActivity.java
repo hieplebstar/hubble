@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import com.cinatic.demo2.AppApplication;
+import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.activities.introduction.IntroductionActivity;
 import com.cinatic.demo2.activities.login.LoginActivity;
@@ -21,7 +22,7 @@ import com.cinatic.demo2.views.customs.ProgressButton;
 /**
  * Created by HiepLe on 21/2/2017.
  */
-public class RegisterActivity extends AppCompatActivity implements RegisterView {
+public class RegisterActivity extends CalligraphyFontActivity implements RegisterView {
 
     @BindView(R.id.progressbutton_register_next)
     ProgressButton mProgressButton;

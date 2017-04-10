@@ -1,5 +1,6 @@
 package com.cinatic.demo2.activities.main;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,11 +13,15 @@ import com.android.appkit.activity.BaseFragmentActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
+import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
+import com.cinatic.demo2.base.activity.CalligraphyFontFragmentActivity;
 import com.cinatic.demo2.fragments.bottomtab.BottomTabFragment;
 import com.cinatic.demo2.hubble.R;
 
-public class MainActivity extends BaseFragmentActivity implements MainView{
+public class MainActivity extends CalligraphyFontFragmentActivity implements MainView{
 
     @BindView(R.id.toolbar_main)
     Toolbar mToolbar;

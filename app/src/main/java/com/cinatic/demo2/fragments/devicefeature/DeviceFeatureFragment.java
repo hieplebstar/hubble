@@ -61,31 +61,38 @@ public class DeviceFeatureFragment extends ButterKnifeFragment{
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(getActivity());
 
         ImageView mMusicImageView = new ImageView(getActivity());
-        mMusicImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_music));
-        SubActionButton mMucisSAB = itemBuilder.setContentView(mMusicImageView).build();
+        mMusicImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_sound));
+        SubActionButton mMusicSAB = itemBuilder.setContentView(mMusicImageView).build();
+        mMusicSAB.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_accent_radius));
 
         ImageView mTempImageView = new ImageView(getActivity());
         mTempImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_temp));
         SubActionButton mTempSAB = itemBuilder.setContentView(mTempImageView).build();
+        mTempSAB.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_accent_radius));
 
         ImageView mRecordImageView = new ImageView(getActivity());
         mRecordImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_record));
         SubActionButton mRecordSAB = itemBuilder.setContentView(mRecordImageView).build();
+        mRecordSAB.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_accent_radius));
 
         ImageView mSnapshotImageView = new ImageView(getActivity());
         mSnapshotImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_snapshot));
         SubActionButton mSnapshotSAB = itemBuilder.setContentView(mSnapshotImageView).build();
+        mSnapshotSAB.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_accent_radius));
 
         ImageView mMuteImageView = new ImageView(getActivity());
         mMuteImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_mute));
         SubActionButton mMuteSAB = itemBuilder.setContentView(mMuteImageView).build();
+        mMuteSAB.setBackground(AppApplication.getDrawableResource(R.drawable.menu_circle_accent_radius));
 
         FloatingActionMenu mMainFeatureMenu = new FloatingActionMenu.Builder(getActivity())
-                .addSubActionView(mMucisSAB)
+                .addSubActionView(mMusicSAB)
                 .addSubActionView(mTempSAB)
                 .addSubActionView(mRecordSAB)
                 .addSubActionView(mSnapshotSAB)
                 .addSubActionView(mMuteSAB)
+                .setStartAngle(-100)
+                .setEndAngle(10)
                 .attachTo(mFeatureLinearLayout)
                 .build();
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -59,10 +60,9 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
     }
 
     @Override
-    protected void updateActionBar(Fragment fragment, String title) {
-        super.updateActionBar(fragment, title);
-        if(fragment == null) return;
-        switch ((ActionBarMode)fragment.getArguments().getSerializable(ActionBarMode.BUNDLE_ID)){
+    protected void updateActionBar(ActionBarMode actionBarMode, Fragment fragment, String title) {
+        super.updateActionBar(actionBarMode, fragment, title);
+        switch (actionBarMode){
             case HOME_MODE:
                 mToolbar.setVisibility(View.VISIBLE);
                 mBottomTabContainer.setVisibility(View.VISIBLE);
@@ -76,6 +76,7 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
                 mBottomTabContainer.setVisibility(View.VISIBLE);
                 break;
         }
+        if(TextUtils.isEmpty(title)) return;
         mTitleTextView.setText(title);
     }
 }

@@ -3,7 +3,10 @@ package com.cinatic.demo2.activities.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +25,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @BindView(R.id.progressbutton_login_continues)
     ProgressButton mProgressButton;
+    @BindView(R.id.container_login)
+    View mContainer;
 
     private Unbinder mUnbinder;
     private LoginPresenter mPresenter;
@@ -33,11 +38,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         mUnbinder = ButterKnife.bind(this);
         mPresenter = new LoginPresenter();
+        mPresenter.start(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mPresenter.stop();
         mUnbinder.unbind();
     }
 
@@ -51,12 +58,21 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
+    public void showSnackBar(String message) {
+        Snackbar snackbar = Snackbar.make(mContainer, message, Snackbar.LENGTH_SHORT);
+        snackbar.getView().setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+        snackbar.show();
+    }
+
+    @Override
     public void directToMainActivity() {
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
+    @Override
     public void directToIntroductionActivity() {
+        showLoading(false);
         Intent intent = new Intent(this, IntroductionActivity.class);
         startActivity(intent);
         finish();
@@ -70,7 +86,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @OnClick(R.id.progressbutton_login_continues)
     public void onLoginClick() {
-        directToIntroductionActivity();
+        showLoading(true);
+        mPresenter.doLogin("lucydev", "111111Aa");
     }
 
 

@@ -1,2 +1,2 @@
-include ':app', ':android_kit'
+include ':app', ':android_kit', ':api_library'
 project(':android_kit').projectDir = new File('libraries/android_kit')

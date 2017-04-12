@@ -1,8 +1,10 @@
 package com.cinatic.demo2.activities.main;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,11 +14,15 @@ import com.android.appkit.activity.BaseFragmentActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
+import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
+import com.cinatic.demo2.base.activity.CalligraphyFontFragmentActivity;
 import com.cinatic.demo2.fragments.bottomtab.BottomTabFragment;
 import com.cinatic.demo2.hubble.R;
 
-public class MainActivity extends BaseFragmentActivity implements MainView{
+public class MainActivity extends CalligraphyFontFragmentActivity implements MainView{
 
     @BindView(R.id.toolbar_main)
     Toolbar mToolbar;
@@ -54,10 +60,9 @@ public class MainActivity extends BaseFragmentActivity implements MainView{
     }
 
     @Override
-    protected void updateActionBar(Fragment fragment, String title) {
-        super.updateActionBar(fragment, title);
-        if(fragment == null) return;
-        switch ((ActionBarMode)fragment.getArguments().getSerializable(ActionBarMode.BUNDLE_ID)){
+    protected void updateActionBar(ActionBarMode actionBarMode, Fragment fragment, String title) {
+        super.updateActionBar(actionBarMode, fragment, title);
+        switch (actionBarMode){
             case HOME_MODE:
                 mToolbar.setVisibility(View.VISIBLE);
                 mBottomTabContainer.setVisibility(View.VISIBLE);
@@ -71,6 +76,7 @@ public class MainActivity extends BaseFragmentActivity implements MainView{
                 mBottomTabContainer.setVisibility(View.VISIBLE);
                 break;
         }
+        if(TextUtils.isEmpty(title)) return;
         mTitleTextView.setText(title);
     }
 }

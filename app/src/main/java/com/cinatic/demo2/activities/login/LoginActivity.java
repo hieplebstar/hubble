@@ -12,6 +12,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.activities.introduction.IntroductionActivity;
 import com.cinatic.demo2.activities.main.MainActivity;
@@ -21,7 +23,7 @@ import com.cinatic.demo2.views.customs.ProgressButton;
 /**
  * Created by HiepLe on 7/6/2016.
  */
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends CalligraphyFontActivity implements LoginView {
 
     @BindView(R.id.progressbutton_login_continues)
     ProgressButton mProgressButton;

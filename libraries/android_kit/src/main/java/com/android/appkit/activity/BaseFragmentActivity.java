@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.appkit.ActionBarMode;
 import com.android.appkit.AndroidApplication;
 import com.android.appkit.event.FragmentDoAttachEvent;
 import com.android.appkit.event.FragmentDoClearBackStackEvent;
@@ -43,13 +44,12 @@ public abstract class BaseFragmentActivity  extends AppCompatActivity implements
     @Override
     public void onBackStackChanged(){
         if(isBackStackEmpty()){
-            updateActionBar(mHomeFragment, mHomeTitle);
+            updateActionBar(getActionBarMode(mHomeFragment), mHomeFragment, mHomeTitle);
             return;
         }
         FragmentManager.BackStackEntry entry = getBackStackCurrentItem();
-        if(entry == null) return;
-        updateActionBar(getFragment(entry.getName()), entry.getBreadCrumbTitle().toString());
-    };
+        updateActionBar(getActionBarMode(getFragment(entry.getName())), getFragment(entry.getName()), entry.getBreadCrumbTitle().toString());
+    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onAttachFragmentEvent(FragmentDoAttachEvent event) {
@@ -98,7 +98,7 @@ public abstract class BaseFragmentActivity  extends AppCompatActivity implements
         } else {
             mHomeTitle = event.actionBarTitle;
             mHomeFragment = event.fragment;
-            updateActionBar(mHomeFragment, mHomeTitle);
+            updateActionBar(getActionBarMode(mHomeFragment), mHomeFragment, mHomeTitle);
         }
         transaction.setCustomAnimations(event.enterAnimation, event.exitAnimation, event.popEnterAnimation, event.popExitAnimation);
         transaction.replace(containerId, event.fragment, event.fragment.getClass().getName());
@@ -132,7 +132,7 @@ public abstract class BaseFragmentActivity  extends AppCompatActivity implements
         return getSupportFragmentManager().findFragmentByTag(tag);
     }
 
-    protected void updateActionBar(Fragment fragment, String title) {
+    protected void updateActionBar(ActionBarMode actionBarMode, Fragment fragment, String title) {
         getSupportActionBar().setTitle(title);
         getSupportActionBar().invalidateOptionsMenu();
     }
@@ -149,5 +149,12 @@ public abstract class BaseFragmentActivity  extends AppCompatActivity implements
         }
         FragmentManager.BackStackEntry currentEntry = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1);
         return currentEntry;
+    }
+
+    public ActionBarMode getActionBarMode(Fragment fragment) {
+        if (fragment == null || fragment.getArguments() == null || fragment.getArguments().getSerializable(ActionBarMode.BUNDLE_ID) == null) {
+            return ActionBarMode.HOME_MODE;
+        }
+        return  (ActionBarMode) fragment.getArguments().getSerializable(ActionBarMode.BUNDLE_ID);
     }
 }

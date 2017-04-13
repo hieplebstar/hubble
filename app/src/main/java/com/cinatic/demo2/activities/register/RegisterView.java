@@ -6,4 +6,5 @@ package com.cinatic.demo2.activities.register;
 public interface RegisterView {
     void directToLoginActivity();
     void showLoading(boolean isLoading);
+    void showSnackBar(String message);
 }

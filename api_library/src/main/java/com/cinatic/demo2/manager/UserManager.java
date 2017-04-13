@@ -6,6 +6,7 @@ import com.cinatic.demo2.handlers.ResponseCallBackHandler;
 import com.cinatic.demo2.manager.base.BaseManager;
 import com.cinatic.demo2.manager.base.BaseResponseReceivedListener;
 import com.cinatic.demo2.models.AuthenticationDTO;
+import com.cinatic.demo2.models.RegisterDTO;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
 import com.cinatic.demo2.models.responses.RegisterResponse;
 
@@ -23,7 +24,7 @@ public class UserManager extends BaseManager<UserEndpoint> {
     public interface OnRegisterListener extends BaseResponseReceivedListener<RegisterResponse> {}
 
     public void register(String userName, String email, String password, String confirmPassword, OnRegisterListener listener) {
-        Call<RegisterResponse> call = getService().register(userName, email, password, confirmPassword, "");
+        Call<RegisterResponse> call = getService().register(new RegisterDTO(userName, email, password, confirmPassword, ""));
         call.enqueue(new ResponseCallBackHandler<>(listener));
     }
 

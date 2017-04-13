@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 public class ErrorResponse {
-    @SerializedName("error")
+    @SerializedName("status")
     final private String status;
 
-    @SerializedName("error_description")
+    @SerializedName("msg")
     final private String message;
 }

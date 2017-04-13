@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,6 +71,8 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
     public void showSnackBar(String message) {
         Snackbar snackbar = Snackbar.make(mContainer, message, Snackbar.LENGTH_SHORT);
         snackbar.getView().setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+        TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+        textView.setMaxLines(5);
         snackbar.show();
     }
 
@@ -96,7 +99,6 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
     @OnClick(R.id.progressbutton_login_continues)
     public void onLoginClick() {
         if (validate()){
-            showLoading(true);
             mPresenter.doLogin(mUserNameEditText.getText().toString(), mPasswordEditText.getText().toString());
         }
     }

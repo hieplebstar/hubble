@@ -22,6 +22,8 @@
     <string name="have_an_account">Already have an account</string>
     <string name="register_announce">create an account</string>
     <string name="agree_announce">By click next, you %1$s and that you have read our %2$s.</string>
+    <string name="warning_email">Please input a valid email</string>
+    <string name="warning_confirm_password">Confirm password does not match the password</string>
 
     <!--Setup-->
     <string name="add_device_label">Add a device</string>

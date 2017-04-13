@@ -7,11 +7,14 @@ import com.cinatic.demo2.events.DeviceTimelineListDoLoadEvent;
 import com.cinatic.demo2.events.DeviceTimelineListDoReturnEvent;
 import com.cinatic.demo2.events.UserDoLoginEvent;
 import com.cinatic.demo2.events.UserDoLoginReturnEvent;
+import com.cinatic.demo2.events.UserDoRegisterEvent;
+import com.cinatic.demo2.events.UserDoRegisterReturnedEvent;
 import com.cinatic.demo2.events.show.ShowFeedbackMessageEvent;
 import com.cinatic.demo2.manager.UserManager;
 import com.cinatic.demo2.models.DeviceReplayListItem;
 import com.cinatic.demo2.models.DeviceTimelineListItem;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
+import com.cinatic.demo2.models.responses.RegisterResponse;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -42,9 +45,26 @@ public class UserPluginController extends EventPluginController{
         }
     };
 
+    UserManager.OnRegisterListener onRegisterListener = new UserManager.OnRegisterListener() {
+        @Override
+        public void onFailure(Throwable error) {
+            handleError(error);
+        }
+
+        @Override
+        public void onSuccess(RegisterResponse result) {
+            post(new UserDoRegisterReturnedEvent(result));
+        }
+    };
+
     @Subscribe
     public void onUserDoLoginEvent(UserDoLoginEvent event) {
         mUserManager.authenticate(event.getUserName(), event.getPassword(), event.getOauthType(), event.getOauthToken(), onAuthenticateListener);
+    }
+
+    @Subscribe
+    public void onEvent(UserDoRegisterEvent event){
+        mUserManager.register(event.getUsername(), event.getEmail(), event.getPassword(), event.getConfirmPassword(), onRegisterListener);
     }
 
     private void handleError(Throwable throwable){

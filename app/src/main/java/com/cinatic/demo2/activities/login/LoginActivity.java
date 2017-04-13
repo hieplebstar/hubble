@@ -6,13 +6,16 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.activities.introduction.IntroductionActivity;
@@ -27,6 +30,10 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
 
     @BindView(R.id.progressbutton_login_continues)
     ProgressButton mProgressButton;
+    @BindView(R.id.username_login)
+    EditText mUserNameEditText;
+    @BindView(R.id.password_login)
+    EditText mPasswordEditText;
     @BindView(R.id.container_login)
     View mContainer;
 
@@ -88,13 +95,29 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
 
     @OnClick(R.id.progressbutton_login_continues)
     public void onLoginClick() {
-        showLoading(true);
-        mPresenter.doLogin("lucydev", "111111Aa");
+        if (validate()){
+            showLoading(true);
+            mPresenter.doLogin(mUserNameEditText.getText().toString(), mPasswordEditText.getText().toString());
+        }
     }
 
 
     @OnClick(R.id.forgot_pass_login)
     public void onForgetPassClick() {
         directToRegisterActivity();
+    }
+
+    private boolean validate(){
+        String userName = mUserNameEditText.getText().toString();
+        String password = mPasswordEditText.getText().toString();
+        if (TextUtils.isEmpty(userName)){
+            showSnackBar(AppApplication.getStringResource(R.string.warning_username));
+            return false;
+        }
+        if (TextUtils.isEmpty(password)){
+            showSnackBar(AppApplication.getStringResource(R.string.warning_password));
+            return false;
+        }
+        return true;
     }
 }

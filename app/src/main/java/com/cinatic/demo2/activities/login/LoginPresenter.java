@@ -26,6 +26,6 @@ public class LoginPresenter extends EventListeningPresenter<LoginView> {
     }
 
     public void doLogin(String userName, String password) {
-        post(new UserDoLoginEvent(userName, password, "0", ""));
+        post(new UserDoLoginEvent(userName, password, 0, ""));
     }
 }

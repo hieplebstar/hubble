@@ -27,8 +27,8 @@ public class UserManager extends BaseManager<UserEndpoint> {
         call.enqueue(new ResponseCallBackHandler<>(listener));
     }
 
-    public void authenticate(String userName, String password, String oauthType, String oauthToken, OnAuthenticateListener listener) {
-        Call<AuthenticationToken> call = getService().authenticate(new AuthenticationDTO(AppEnvironmentManager.getAPIEnvironment().getOs(), "unknown", oauthType, oauthToken, false, userName, password));
+    public void authenticate(String userName, String password, int oauthType, String oauthToken, OnAuthenticateListener listener) {
+        Call<AuthenticationToken> call = getService().authenticate(new AuthenticationDTO(AppEnvironmentManager.getAPIEnvironment().getOs(), "unknown", oauthType, false, userName, password));
         call.enqueue(new ResponseCallBackHandler<>(listener));
     }
 }

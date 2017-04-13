@@ -9,6 +9,6 @@ import lombok.Data;
 public class UserDoLoginEvent {
     final String userName;
     final String password;
-    final String oauthType;
+    final int oauthType;
     final String oauthToken;
 }

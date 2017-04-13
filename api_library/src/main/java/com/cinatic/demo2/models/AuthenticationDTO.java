@@ -10,17 +10,20 @@ import lombok.Data;
 @Data
 public class AuthenticationDTO {
     @SerializedName("os")
-    final String os;
+    final int os;
+
     @SerializedName("model")
     final String model;
+
     @SerializedName("oauth_type")
-    final String oauthType;
-    @SerializedName("oauth_token")
-    final String oauthToken;
+    final int oauthType;
+
     @SerializedName("is_refresh")
     final boolean is_refresh;
+
     @SerializedName("login")
     final String userName;
+
     @SerializedName("password")
     final String password;
 }

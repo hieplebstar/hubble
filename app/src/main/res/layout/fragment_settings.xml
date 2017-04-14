@@ -148,6 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:layout_marginRight="@dimen/Android_Design_rhythmThird"
                 android:layout_marginTop="@dimen/Android_Design_rhythmSixth"
                 android:text="@string/app_version_label"
                 android:textAppearance="@style/App.TextAppearance.MediumGrey" />

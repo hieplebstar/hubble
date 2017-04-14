@@ -16,7 +16,7 @@ public class LoginPresenter extends EventListeningPresenter<LoginView> {
     @Subscribe
     public void onUserDoLoginEvent(UserDoLoginReturnEvent event) {
         view.showLoading(false);
-        view.directToIntroductionActivity();
+        view.directToMainActivity();
     }
 
     @Subscribe

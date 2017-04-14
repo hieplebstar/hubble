@@ -5,7 +5,6 @@ package com.cinatic.demo2.activities.login;
  */
 public interface LoginView {
     void directToMainActivity();
-    void directToIntroductionActivity();
     void showLoading(boolean isLoading);
     void showSnackBar(String message);
 }

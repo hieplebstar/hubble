@@ -80,14 +80,6 @@ public class RegisterActivity extends CalligraphyFontActivity implements Registe
         finish();
     }
 
-
-
-    public void directToIntroductionActivity() {
-        Intent intent = new Intent(this, IntroductionActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     @OnClick(R.id.progressbutton_register_login)
     public void onLoginNowClick() {
         directToLoginActivity();

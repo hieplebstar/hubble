@@ -11,6 +11,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import com.cinatic.demo2.activities.login.LoginActivity;
 import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.activities.main.MainActivity;
@@ -46,11 +47,11 @@ public class IntroductionActivity extends CalligraphyFontActivity {
 
     @OnClick(R.id.progressbutton_introduction_next)
     public void onLoginClick() {
-        directToMainActivity();
+        directToLoginActivity();
     }
 
-    public void directToMainActivity() {
-        startActivity(new Intent(this, MainActivity.class));
+    public void directToLoginActivity() {
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }

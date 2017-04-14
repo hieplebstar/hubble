@@ -82,17 +82,8 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
         finish();
     }
 
-    @Override
-    public void directToIntroductionActivity() {
-        showLoading(false);
-        Intent intent = new Intent(this, IntroductionActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     public void directToRegisterActivity() {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, RegisterActivity.class));
         finish();
     }
 

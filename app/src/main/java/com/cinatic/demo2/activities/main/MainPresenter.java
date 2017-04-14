@@ -7,6 +7,7 @@ import com.cinatic.demo2.events.UserDoLoadInfoEvent;
 import com.cinatic.demo2.events.UserDoLoadInfoReturnEvent;
 import com.cinatic.demo2.events.show.ShowBottomTabEvent;
 import com.cinatic.demo2.events.show.ShowFeedbackMessageEvent;
+import com.cinatic.demo2.events.show.ShowSettingEvent;
 import com.cinatic.demo2.events.show.ShowSetupWelcomeEvent;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -32,5 +33,9 @@ public class MainPresenter extends EventListeningPresenter<MainView>{
     public void onShowFeedbackMessageEvent(ShowFeedbackMessageEvent event) {
         view.showLoading(false);
         view.showSnackBar(event.getMessage());
+    }
+
+    public void showSetting() {
+        post(new ShowSettingEvent());
     }
 }

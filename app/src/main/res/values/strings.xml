@@ -6,6 +6,7 @@
     <string name="email_label">Email</string>
     <string name="pass_label">Password</string>
     <string name="forgot_pass">Forgot Password?</string>
+    <string name="create_account">Create an account</string>
     <string name="remember_me">Remember Me</string>
     <string name="login_announce">login to your account</string>
     <string name="login_with">Login with</string>
@@ -24,6 +25,17 @@
     <string name="agree_announce">By click next, you %1$s and that you have read our %2$s.</string>
     <string name="warning_email">Please input a valid email</string>
     <string name="warning_confirm_password">Confirm password does not match the password</string>
+
+    <!--Setting-->
+    <string name="setting_label">Setting</string>
+    <string name="profile_label">profile</string>
+    <string name="change_password_label">Change password</string>
+    <string name="do_not_disturb_label">Do not disturb</string>
+    <string name="user_support_label">User support</string>
+    <string name="send_app_log">Send App Log</string>
+    <string name="app_version_label">Lucy - App version %1$s</string>
+    <string name="username_label">Username</string>
+
 
     <!--Setup-->
     <string name="add_device_label">Add a device</string>

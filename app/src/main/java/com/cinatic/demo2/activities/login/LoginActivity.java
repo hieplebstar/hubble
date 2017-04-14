@@ -103,6 +103,11 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
         }
     }
 
+    @OnClick(R.id.create_account_login)
+    public void onCreateAccountClick() {
+        directToRegisterActivity();
+    }
+
 
     @OnClick(R.id.forgot_pass_login)
     public void onForgetPassClick() {

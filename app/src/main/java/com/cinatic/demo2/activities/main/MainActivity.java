@@ -16,6 +16,7 @@ import com.android.appkit.activity.BaseFragmentActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -104,5 +105,11 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
         } else {
             mProgressBar.setVisibility(View.GONE);
         }
+    }
+
+
+    @OnClick(R.id.imageview_menu_setting_main)
+    public void onSettingButtonClick() {
+        mPresenter.showSetting();
     }
 }

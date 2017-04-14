@@ -14,6 +14,7 @@ import com.cinatic.demo2.plugincontroller.show.DeviceActivatedPluginController;
 import com.cinatic.demo2.plugincontroller.show.DeviceFeaturePluginController;
 import com.cinatic.demo2.plugincontroller.show.DeviceInnerPluginController;
 import com.cinatic.demo2.plugincontroller.show.HomeDevicePluginController;
+import com.cinatic.demo2.plugincontroller.show.SettingPluginController;
 import com.cinatic.demo2.plugincontroller.show.SetupWelcomePluginController;
 
 /**
@@ -28,6 +29,7 @@ public class MainEventBusController extends EventBusController {
                 new DeviceInnerPluginController(),
                 new DeviceFeaturePluginController(),
                 new HomeDevicePluginController(),
+                new SettingPluginController(),
                 new SetupWelcomePluginController(),
                 new DeviceActivatedPluginController(),
                 new DeviceListPluginController(),

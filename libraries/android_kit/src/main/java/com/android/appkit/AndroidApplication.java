@@ -2,6 +2,8 @@ package com.android.appkit;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -84,5 +86,17 @@ public abstract class AndroidApplication extends Application{
         Point size = new Point();
         display.getSize(size);
         return size;
+    }
+
+
+
+    public static String getBuildVersion() {
+        try {
+            PackageInfo pInfo = sInstance.getPackageManager().getPackageInfo(sInstance.getPackageName(), 0);
+            return pInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

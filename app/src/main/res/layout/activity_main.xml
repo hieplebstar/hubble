@@ -38,19 +38,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_toLeftOf="@+id/imageview_menu_plus_main"
                     android:layout_toRightOf="@+id/imageview_menu_setting_main"
                     android:gravity="center"
                     android:textAppearance="@style/App.TextAppearance.LargeBlack" />
-
-                <ImageView
-                    android:id="@+id/imageview_menu_plus_main"
-                    android:layout_width="@dimen/Android_Design_rhythmTwoThirds"
-                    android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_plus"
-                    android:tint="@color/colorAccent" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 

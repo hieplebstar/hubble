@@ -4,6 +4,7 @@ package com.cinatic.demo2.fragments.homedevice;
 import com.android.appkit.presenter.EventListeningPresenter;
 import com.cinatic.demo2.events.DeviceListDoLoadEvent;
 import com.cinatic.demo2.events.DeviceListDoReturnEvent;
+import com.cinatic.demo2.events.show.ShowDeviceActivatedEvent;
 import com.cinatic.demo2.events.show.ShowDeviceInnerEvent;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -24,5 +25,9 @@ public class DevicesPresenter extends EventListeningPresenter<DevicesView> {
 
     public void showDetail(){
         post(new ShowDeviceInnerEvent());
+    }
+
+    void showSetupResult(){
+        post(new ShowDeviceActivatedEvent());
     }
 }

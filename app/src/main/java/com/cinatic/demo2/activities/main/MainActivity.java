@@ -1,6 +1,7 @@
 package com.cinatic.demo2.activities.main;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
+import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
 import com.cinatic.demo2.base.activity.CalligraphyFontFragmentActivity;
 import com.cinatic.demo2.fragments.bottomtab.BottomTabFragment;
@@ -36,11 +39,14 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
     View mBottomTabContainer;
     @BindView(R.id.textview_title_main)
     TextView mTitleTextView;
+    @BindView(R.id.imageview_menu_setting_main)
+    ImageView mActionMenuImageView;
     @BindView(R.id.progressbar_main)
     ProgressBar mProgressBar;
 
     private Unbinder mUnbinder;
     private MainPresenter mPresenter;
+    private ActionBarMode mActionBarMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +76,10 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
     @Override
     protected void updateActionBar(ActionBarMode actionBarMode, Fragment fragment, String title) {
         super.updateActionBar(actionBarMode, fragment, title);
+        mActionBarMode = actionBarMode;
         switch (actionBarMode){
             case HOME_MODE:
+                showHomeSettingMenu();
                 mToolbar.setVisibility(View.VISIBLE);
                 mBottomTabContainer.setVisibility(View.VISIBLE);
                 break;
@@ -80,6 +88,7 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
                 mBottomTabContainer.setVisibility(View.GONE);
                 break;
             case OVERLAY_MODE:
+                showBackIndicator();
                 mToolbar.setVisibility(View.VISIBLE);
                 mBottomTabContainer.setVisibility(View.VISIBLE);
                 break;
@@ -109,7 +118,32 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
 
 
     @OnClick(R.id.imageview_menu_setting_main)
-    public void onSettingButtonClick() {
-        mPresenter.showSetting();
+    public void onActionMenuButtonClick() {
+        switch (mActionBarMode){
+            case HOME_MODE:
+                mPresenter.showSetting();
+                break;
+            case FULL_MODE:
+                onBackPressed();
+                break;
+            case OVERLAY_MODE:
+                onBackPressed();
+                break;
+            default:
+                onBackPressed();
+                break;
+        }
+    }
+
+    public void showBackIndicator() {
+        mActionMenuImageView.setImageDrawable(this.getDrawerToggleDelegate().getThemeUpIndicator());
+    }
+
+    public void hideHomeButton() {
+        mActionMenuImageView.setImageDrawable(null);
+    }
+
+    private void showHomeSettingMenu() {
+        mActionMenuImageView.setImageDrawable(AppApplication.getDrawableResource(R.drawable.ic_setting));
     }
 }

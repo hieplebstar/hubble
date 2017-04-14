@@ -1,10 +1,15 @@
 package com.cinatic.demo2.fragments.homedevice;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -16,8 +21,11 @@ import com.cinatic.demo2.views.adapters.DeviceListAdapter;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class DevicesFragment extends ButterKnifeFragment implements DevicesView, DeviceListAdapter.OnClickItemListener{
+
+    private final int WIFI_REQUEST_CODE = 0;
 
     @BindView(R.id.recyclerview_home_devices)
     RecyclerView mRecyclerView;
@@ -32,8 +40,24 @@ public class DevicesFragment extends ButterKnifeFragment implements DevicesView,
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         mPresenter = new DevicesPresenter();
         mAdapter = new DeviceListAdapter();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.device_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.add_device_menu_item:
+                startActivityForResult(new Intent(Settings.ACTION_WIFI_SETTINGS), WIFI_REQUEST_CODE);
+                return true;
+        }
+        return false;
     }
 
     @Override
@@ -58,6 +82,14 @@ public class DevicesFragment extends ButterKnifeFragment implements DevicesView,
     public void onDestroyView() {
         super.onDestroyView();
         mPresenter.stop();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode != WIFI_REQUEST_CODE) return;
+        mPresenter.showSetupResult();
+
     }
 
     @Override

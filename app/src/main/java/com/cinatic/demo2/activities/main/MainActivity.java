@@ -1,11 +1,14 @@
 package com.cinatic.demo2.activities.main;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.appkit.ActionBarMode;
@@ -32,6 +35,8 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
     View mBottomTabContainer;
     @BindView(R.id.textview_title_main)
     TextView mTitleTextView;
+    @BindView(R.id.progressbar_main)
+    ProgressBar mProgressBar;
 
     private Unbinder mUnbinder;
     private MainPresenter mPresenter;
@@ -43,12 +48,14 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
         mUnbinder = ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
         mPresenter = new MainPresenter();
+        mPresenter.start(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mUnbinder.unbind();
+        mPresenter.stop();
     }
 
     @Override
@@ -78,5 +85,24 @@ public class MainActivity extends CalligraphyFontFragmentActivity implements Mai
         }
         if(TextUtils.isEmpty(title)) return;
         mTitleTextView.setText(title);
+    }
+
+    @Override
+    public void showSnackBar(String message) {
+        Snackbar snackbar = Snackbar.make(mMainContainer, message, Snackbar.LENGTH_SHORT);
+        snackbar.getView().setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+        TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+        textView.setMaxLines(5);
+        snackbar.show();
+    }
+
+    @Override
+    public void showLoading(boolean isLoading) {
+        if(mProgressBar == null) return;
+        if(isLoading) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        } else {
+            mProgressBar.setVisibility(View.GONE);
+        }
     }
 }

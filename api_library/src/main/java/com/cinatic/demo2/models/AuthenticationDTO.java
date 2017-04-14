@@ -9,7 +9,7 @@ import lombok.Data;
  */
 @Data
 public class AuthenticationDTO {
-    @SerializedName("os")
+    @SerializedName("refresh_token")
     final int os;
 
     @SerializedName("model")

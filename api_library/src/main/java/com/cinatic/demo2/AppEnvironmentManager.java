@@ -16,8 +16,6 @@ public class AppEnvironmentManager {
 
         @Getter
         final String domain;
-        @Getter
-        final int os = 1;
 
         APIEnvironment(String domain) {
             this.domain = domain;
@@ -28,17 +26,8 @@ public class AppEnvironmentManager {
         }
     }
 
-//    private static APIEnvironment sAPIEnvironment = null;
-
-//    public static void setupAPIEnvironment(APIEnvironment environment) {
-//        sAPIEnvironment = environment;
-//        BaseManager.initRetrofit();
-//    }
 
     public static APIEnvironment getAPIEnvironment() {
-//        if (null != sAPIEnvironment) {
-//            return sAPIEnvironment;
-//        }
         switch (BuildConfig.BUILD_TYPE) {
             case "debug":
                 return APIEnvironment.STAGING;

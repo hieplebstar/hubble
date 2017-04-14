@@ -7,6 +7,7 @@ import com.cinatic.demo2.models.responses.AuthenticationToken;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import lombok.Getter;
 import lombok.Setter;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -27,8 +28,13 @@ public class ServiceGenerator {
                     .baseUrl(AppEnvironmentManager.getAPIEnvironment().getDomain())
                     .addConverterFactory(GsonConverterFactory.create());
     private static Context mContext;
-    @Setter
-    private static AuthenticationToken authenticationToken;
+
+    @Setter @Getter
+    private static String refreshToken;
+    @Setter @Getter
+    private static String accessToken;
+    @Setter @Getter
+    final static int os = 1;
 
     public static void initialize(Context context){
         if (mContext == null){

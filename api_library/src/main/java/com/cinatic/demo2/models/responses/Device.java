@@ -44,14 +44,29 @@ public class Device {
     private String remoteIp;
 
     @SerializedName("firmware")
-    private String firmware;
+    private Firmware firmware;
 
     @SerializedName("subscription")
-    private String subscription;
+    private Subscription subscription;
 
     @SerializedName("last_access_date")
     private String lastAccessDate;
 
+    @SerializedName("created_date")
+    private String created_date;
+
+    @SerializedName("updated_date")
+    private String updated_date;
+
+    @SerializedName("router_ssid")
+    private String router_ssid;
+
+    @SerializedName("router_name")
+    private String router_name;
+
+    @SerializedName("settings")
+    private String[] settings;
+
     @SerializedName("atts")
-    private String atts;
+    private Atts atts;
 }

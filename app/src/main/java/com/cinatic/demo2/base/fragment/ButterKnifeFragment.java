@@ -8,7 +8,7 @@ import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class ButterKnifeFragment extends Fragment {
+public class ButterKnifeFragment extends ProgressSupportFragment {
 
     private Unbinder mUnbinder;
 

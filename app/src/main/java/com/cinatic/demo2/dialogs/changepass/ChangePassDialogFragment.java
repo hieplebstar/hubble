@@ -1,4 +1,4 @@
-package com.cinatic.demo2.dialogs.forgotpass;
+package com.cinatic.demo2.dialogs.changepass;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.cinatic.demo2.AppApplication;
+import com.cinatic.demo2.dialogs.forgotpass.ForgotPassDialogPresenter;
+import com.cinatic.demo2.dialogs.forgotpass.ForgotPassDialogView;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.utils.StringUtils;
 
@@ -25,26 +27,28 @@ import butterknife.Unbinder;
 /**
  * Created by Hiep.Le on 7/7/2016.
  */
-public class ForgotPassDialogFragment extends DialogFragment implements ForgotPassDialogView {
+public class ChangePassDialogFragment extends DialogFragment implements ForgotPassDialogView {
 
 
-    @BindView(R.id.edittext_forgot_pass_dialog_email)
-    EditText mEmailEditText;
-    @BindView(R.id.edittext_forgot_pass_dialog_username)
-    EditText mUserNameEditText;
+    @BindView(R.id.edittext_change_pass_dialog_old_pass)
+    EditText mOldEditText;
+    @BindView(R.id.edittext_change_pass_dialog_new_pass)
+    EditText mNewEditText;
+    @BindView(R.id.edittext_change_pass_dialog_confirm_pass)
+    EditText mConfirmEditText;
 
     private Unbinder mUnbinder;
-    private ForgotPassDialogPresenter mPresenter;
+    private ChangePassDialogPresenter mPresenter;
 
-    public static ForgotPassDialogFragment newInstance() {
-        ForgotPassDialogFragment dialogFragment = new ForgotPassDialogFragment();
+    public static ChangePassDialogFragment newInstance() {
+        ChangePassDialogFragment dialogFragment = new ChangePassDialogFragment();
         return dialogFragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new ForgotPassDialogPresenter();
+        mPresenter = new ChangePassDialogPresenter();
     }
 
     @Nullable
@@ -56,7 +60,7 @@ public class ForgotPassDialogFragment extends DialogFragment implements ForgotPa
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        View content = getActivity().getLayoutInflater().inflate(R.layout.dialog_forgot_pass, null);
+        View content = getActivity().getLayoutInflater().inflate(R.layout.dialog_change_pass, null);
         mUnbinder = ButterKnife.bind(this, content);
         final AlertDialog mAlertDialog;
         mAlertDialog= new AlertDialog.Builder(getActivity())
@@ -73,7 +77,7 @@ public class ForgotPassDialogFragment extends DialogFragment implements ForgotPa
                     @Override
                     public void onClick(View view) {
                         if(validate()){
-                            mPresenter.resetPassword(mUserNameEditText.getText().toString(), mEmailEditText.getText().toString());
+                            mPresenter.changePassword(mOldEditText.getText().toString(), mNewEditText.getText().toString(), mConfirmEditText.getText().toString());
                             dismiss();
                         }
                     }
@@ -90,14 +94,19 @@ public class ForgotPassDialogFragment extends DialogFragment implements ForgotPa
     }
 
     private boolean validate(){
-        String userName = mUserNameEditText.getText().toString();
-        String email = mEmailEditText.getText().toString();
-        if (TextUtils.isEmpty(userName)){
-            Toast.makeText(getActivity(), AppApplication.getStringResource(R.string.warning_username), Toast.LENGTH_LONG).show();
+        String oldPass = mOldEditText.getText().toString();
+        String newPass = mNewEditText.getText().toString();
+        String confirmPass = mConfirmEditText.getText().toString();
+        if (TextUtils.isEmpty(oldPass)){
+            Toast.makeText(getActivity(), AppApplication.getStringResource(R.string.warning_password), Toast.LENGTH_LONG).show();
             return false;
         }
-        if (!StringUtils.validateEmail(email)) {
-            Toast.makeText(getActivity(), AppApplication.getStringResource(R.string.warning_email), Toast.LENGTH_LONG).show();
+        if (TextUtils.isEmpty(newPass)) {
+            Toast.makeText(getActivity(), AppApplication.getStringResource(R.string.warning_password), Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (!confirmPass.equals(newPass)) {
+            Toast.makeText(getActivity(), AppApplication.getStringResource(R.string.warning_confirm_password), Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

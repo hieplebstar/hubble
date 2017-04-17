@@ -6,6 +6,7 @@ import com.cinatic.demo2.models.RegisterDTO;
 import com.cinatic.demo2.models.ResetPasswordDTO;
 import com.cinatic.demo2.models.UpdatePasswordDTO;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
+import com.cinatic.demo2.models.responses.UpdatePasswordResponse;
 import com.cinatic.demo2.models.responses.WrapperResponse;
 import com.cinatic.demo2.models.responses.RegisterResponse;
 import com.cinatic.demo2.models.responses.UserInfo;
@@ -15,6 +16,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 /**
@@ -38,7 +40,8 @@ public interface UserEndpoint {
     @POST("users/account/recover_password")
     Call<WrapperResponse<ResponseBody>> resetPassword(@Body ResetPasswordDTO resetPasswordDTO);
 
-    @POST("users/account/change_password")
-    Call<WrapperResponse<ResponseBody>> updatePassword(@Body UpdatePasswordDTO updatePasswordDTO);
+    @PUT("users/account/change_password")
+    Call<WrapperResponse<UpdatePasswordResponse>> updatePassword(@Query("access_token") String accessToken,
+                                                                 @Body UpdatePasswordDTO updatePasswordDTO);
 
 }

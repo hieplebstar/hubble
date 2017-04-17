@@ -7,4 +7,6 @@ import com.cinatic.demo2.models.responses.UserInfo;
  */
 public interface SettingView {
     void updateView(UserInfo userInfoResponse);
+    void showLoading(boolean isLoading);
+    void showSnackBar(String message);
 }

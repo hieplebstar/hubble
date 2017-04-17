@@ -4,7 +4,7 @@ import com.android.appkit.presenter.EventListeningPresenter;
 import com.cinatic.demo2.events.UserDoResetPasswordEvent;
 
 /**
- * Created by shintabmt on 7/8/2016.
+ * Created by Hiep.Le on 7/8/2016.
  */
 public class ForgotPassDialogPresenter extends EventListeningPresenter<ForgotPassDialogView> {
     public void resetPassword(String userName, String email){

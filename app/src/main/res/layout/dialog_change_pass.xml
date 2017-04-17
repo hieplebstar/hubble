@@ -18,15 +18,15 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edittext_fogot_pass_dialog_email"
+                android:id="@+id/edittext_change_pass_dialog_old_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/Android_Design_rhythmSixth"
                 android:background="@color/transparent"
                 android:gravity="start|center_vertical"
-                android:hint="@string/email_label"
-                android:inputType="textEmailAddress"
+                android:hint="@string/old_pass_label"
+                android:inputType="textPassword"
                 android:maxLines="1" />
         </LinearLayout>
 
@@ -38,14 +38,35 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edittext_fogot_pass_dialog_username"
+                android:id="@+id/edittext_change_pass_dialog_new_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/Android_Design_rhythmSixth"
                 android:background="@color/transparent"
                 android:gravity="start|center_vertical"
-                android:hint="@string/username_label"
+                android:hint="@string/new_pass_label"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Android_Design_rhythmThird"
+            android:background="@drawable/bg_white_border_all"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edittext_change_pass_dialog_confirm_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/Android_Design_rhythmSixth"
+                android:background="@color/transparent"
+                android:gravity="start|center_vertical"
+                android:hint="@string/confirm_pass_label"
+                android:inputType="textPassword"
                 android:maxLines="1" />
         </LinearLayout>
 

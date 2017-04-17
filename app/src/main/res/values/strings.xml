@@ -37,6 +37,10 @@
     <string name="send_app_log">Send App Log</string>
     <string name="app_version_label">Lucy - App version %1$s</string>
     <string name="username_label">Username</string>
+    <string name="old_pass_label">Old Password</string>
+    <string name="new_pass_label">New Password</string>
+    <string name="logout_label">Logout</string>
+    <string name="change_pass_success">success to change password!</string>
 
 
     <!--Setup-->

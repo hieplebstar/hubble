@@ -11,6 +11,7 @@ import com.cinatic.demo2.models.RegisterDTO;
 import com.cinatic.demo2.models.ResetPasswordDTO;
 import com.cinatic.demo2.models.UpdatePasswordDTO;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
+import com.cinatic.demo2.models.responses.UpdatePasswordResponse;
 import com.cinatic.demo2.models.responses.WrapperResponse;
 import com.cinatic.demo2.models.responses.RegisterResponse;
 import com.cinatic.demo2.models.responses.UserInfo;
@@ -30,7 +31,7 @@ public class UserManager extends BaseManager<UserEndpoint> {
     public interface OnRegisterListener extends BaseResponseReceivedListener<RegisterResponse> {}
     public interface OnRefreshTokenListener extends BaseResponseReceivedListener<AuthenticationToken> {}
     public interface OnGetUserInfoListener extends BaseResponseReceivedListener<UserInfo> {}
-    public interface OnUpdatePasswordListener extends BaseResponseReceivedListener<ResponseBody> {}
+    public interface OnUpdatePasswordListener extends BaseResponseReceivedListener<UpdatePasswordResponse> {}
     public interface OnResetPasswordListener extends BaseResponseReceivedListener<ResponseBody> {}
 
     public void register(String userName, String email, String password, String confirmPassword, OnRegisterListener listener) {
@@ -77,7 +78,7 @@ public class UserManager extends BaseManager<UserEndpoint> {
     }
 
     public void updatePassword(String currentPassword, String password, String confirmPassword, OnUpdatePasswordListener listener) {
-        Call<WrapperResponse<ResponseBody>> call = getService().updatePassword(new UpdatePasswordDTO(currentPassword, password, confirmPassword));
+        Call<WrapperResponse<UpdatePasswordResponse>> call = getService().updatePassword(ServiceGenerator.getAccessToken(), new UpdatePasswordDTO(currentPassword, password, confirmPassword));
         call.enqueue(new ResponseWrapperCallBackHandler<>(listener));
     }
 

@@ -10,9 +10,8 @@ import com.cinatic.demo2.events.UserDoRegisterReturnedEvent;
 import com.cinatic.demo2.events.show.ShowFeedbackMessageEvent;
 import com.cinatic.demo2.manager.UserManager;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
-import com.cinatic.demo2.models.responses.WrapperResponse;
 import com.cinatic.demo2.models.responses.RegisterResponse;
-import com.cinatic.demo2.models.responses.UserInfoResponse;
+import com.cinatic.demo2.models.responses.UserInfo;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -61,13 +60,13 @@ public class UserPluginController extends EventPluginController{
         }
 
         @Override
-        public void onSuccess(UserInfoResponse result) {
+        public void onSuccess(UserInfo result) {
             postSticky(new UserDoLoadInfoReturnEvent(result));
         }
     };
 
     @Subscribe
-    public void onUserDoLoginEvent(UserDoLoginEvent event) {
+    public void onEvent(UserDoLoginEvent event) {
         mUserManager.authenticate(event.getUserName(), event.getPassword(), event.getOauthType(), event.getOauthToken(), onAuthenticateListener);
     }
 

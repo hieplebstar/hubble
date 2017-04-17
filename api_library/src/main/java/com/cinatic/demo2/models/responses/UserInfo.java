@@ -9,7 +9,7 @@ import lombok.Data;
  */
 
 @Data
-public class UserInfoResponse {
+public class UserInfo {
     @SerializedName("last_updated")
     private String lastUpdated;
 

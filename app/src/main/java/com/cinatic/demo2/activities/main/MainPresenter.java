@@ -25,7 +25,6 @@ public class MainPresenter extends EventListeningPresenter<MainView>{
 
     @Subscribe
     public void onUserDoLoginEvent(UserDoLoadInfoReturnEvent event) {
-//        post(new ShowSetupWelcomeEvent());
         post(new ShowBottomTabEvent());
     }
 

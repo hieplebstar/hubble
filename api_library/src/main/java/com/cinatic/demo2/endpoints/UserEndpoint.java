@@ -8,7 +8,7 @@ import com.cinatic.demo2.models.UpdatePasswordDTO;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
 import com.cinatic.demo2.models.responses.WrapperResponse;
 import com.cinatic.demo2.models.responses.RegisterResponse;
-import com.cinatic.demo2.models.responses.UserInfoResponse;
+import com.cinatic.demo2.models.responses.UserInfo;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -30,7 +30,7 @@ public interface UserEndpoint {
     Call<WrapperResponse<AuthenticationToken>> authenticate(@Body AuthenticationDTO authenticationDTO);
 
     @GET("users/account")
-    Call<WrapperResponse<UserInfoResponse>> getUserInfo(@Query("access_token") String accessToken);
+    Call<WrapperResponse<UserInfo>> getUserInfo(@Query("access_token") String accessToken);
 
     @GET("users/authenticate")
     Call<WrapperResponse<AuthenticationToken>> refreshToken(@Body RefreshTokenDTO refreshTokenDTO);

@@ -17,7 +17,7 @@ import java.util.List;
 public class DeviceListPluginController extends EventPluginController{
     @Subscribe
     public void onDeviceListDoLoadEvent(DeviceListDoLoadEvent event) {
-        post(new DeviceListDoReturnEvent(createMockData()));
+//        post(new DeviceListDoReturnEvent(createMockData()));
     }
 
     private List<DeviceListItem> createMockData() {

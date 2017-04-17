@@ -13,7 +13,7 @@ import com.cinatic.demo2.models.UpdatePasswordDTO;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
 import com.cinatic.demo2.models.responses.WrapperResponse;
 import com.cinatic.demo2.models.responses.RegisterResponse;
-import com.cinatic.demo2.models.responses.UserInfoResponse;
+import com.cinatic.demo2.models.responses.UserInfo;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -29,7 +29,7 @@ public class UserManager extends BaseManager<UserEndpoint> {
     public interface OnAuthenticateListener extends BaseResponseReceivedListener<AuthenticationToken> {}
     public interface OnRegisterListener extends BaseResponseReceivedListener<RegisterResponse> {}
     public interface OnRefreshTokenListener extends BaseResponseReceivedListener<AuthenticationToken> {}
-    public interface OnGetUserInfoListener extends BaseResponseReceivedListener<UserInfoResponse> {}
+    public interface OnGetUserInfoListener extends BaseResponseReceivedListener<UserInfo> {}
     public interface OnUpdatePasswordListener extends BaseResponseReceivedListener<ResponseBody> {}
     public interface OnResetPasswordListener extends BaseResponseReceivedListener<ResponseBody> {}
 
@@ -72,7 +72,7 @@ public class UserManager extends BaseManager<UserEndpoint> {
     }
 
     public void getUserInfo(OnGetUserInfoListener listener) {
-        Call<WrapperResponse<UserInfoResponse>> call = getService().getUserInfo(ServiceGenerator.getAccessToken());
+        Call<WrapperResponse<UserInfo>> call = getService().getUserInfo(ServiceGenerator.getAccessToken());
         call.enqueue(new ResponseWrapperCallBackHandler<>(listener));
     }
 

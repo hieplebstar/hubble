@@ -2,8 +2,6 @@ package com.cinatic.demo2.fragments.setting;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +9,8 @@ import android.widget.TextView;
 
 import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.base.fragment.ButterKnifeFragment;
-import com.cinatic.demo2.fragments.homedevice.DevicesPresenter;
-import com.cinatic.demo2.fragments.homedevice.DevicesView;
 import com.cinatic.demo2.hubble.R;
-import com.cinatic.demo2.models.DeviceListItem;
-import com.cinatic.demo2.models.responses.UserInfoResponse;
-import com.cinatic.demo2.views.adapters.DeviceListAdapter;
-
-import java.util.List;
+import com.cinatic.demo2.models.responses.UserInfo;
 
 import butterknife.BindView;
 
@@ -62,7 +54,7 @@ public class SettingFragment extends ButterKnifeFragment implements SettingView{
     }
 
     @Override
-    public void updateView(UserInfoResponse userInfo) {
+    public void updateView(UserInfo userInfo) {
         mUsernameTextView.setText(userInfo.getUserName());
         mVersionTextView.setText(AppApplication.getStringResource(R.string.app_version_label, AppApplication.getBuildVersion()));
     }

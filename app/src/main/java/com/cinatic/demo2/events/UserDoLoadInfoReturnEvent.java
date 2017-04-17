@@ -1,6 +1,6 @@
 package com.cinatic.demo2.events;
 
-import com.cinatic.demo2.models.responses.UserInfoResponse;
+import com.cinatic.demo2.models.responses.UserInfo;
 
 import lombok.Data;
 
@@ -9,5 +9,5 @@ import lombok.Data;
  */
 @Data
 public class UserDoLoadInfoReturnEvent {
-    final UserInfoResponse userInfo;
+    final UserInfo userInfo;
 }

@@ -2,9 +2,13 @@ package com.cinatic.demo2.activities.login;
 
 
 import com.android.appkit.presenter.EventListeningPresenter;
+import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.events.UserDoLoginEvent;
 import com.cinatic.demo2.events.UserDoLoginReturnEvent;
+import com.cinatic.demo2.events.UserDoResetPasswordEvent;
+import com.cinatic.demo2.events.UserDoResetPasswordReturnEvent;
 import com.cinatic.demo2.events.show.ShowFeedbackMessageEvent;
+import com.cinatic.demo2.hubble.R;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -14,9 +18,20 @@ import org.greenrobot.eventbus.Subscribe;
 public class LoginPresenter extends EventListeningPresenter<LoginView> {
 
     @Subscribe
-    public void onUserDoLoginEvent(UserDoLoginReturnEvent event) {
+    public void onEvent(UserDoLoginReturnEvent event) {
         view.showLoading(false);
         view.directToMainActivity();
+    }
+
+    @Subscribe
+    public void onEvent(UserDoResetPasswordReturnEvent event) {
+        view.showLoading(false);
+        view.showSnackBar(AppApplication.getStringResource(R.string.reset_pass_success));
+    }
+
+    @Subscribe
+    public void onEvent(UserDoResetPasswordEvent event) {
+        view.showLoading(true);
     }
 
     @Subscribe

@@ -13,6 +13,8 @@
     <string name="or">Or</string>
     <string name="warning_username">Please input your user name</string>
     <string name="warning_password">Please input your password</string>
+    <string name="reset_pass_label">Reset password</string>
+    <string name="reset_pass_success">success to reset password!</string>
 
     <!--Register-->
     <string name="register_label">Register</string>
@@ -41,6 +43,7 @@
     <string name="add_device_label">Add a device</string>
     <string name="buy_label">Buy Now</string>
     <string name="ok_label">Ok</string>
+    <string name="cancel_label">Cancel</string>
     <string name="device_activated_announce">Device activated!</string>
 
     <!--Devices-->

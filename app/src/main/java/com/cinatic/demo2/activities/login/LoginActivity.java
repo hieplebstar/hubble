@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -18,6 +19,7 @@ import butterknife.Unbinder;
 
 import com.cinatic.demo2.AppApplication;
 import com.cinatic.demo2.base.activity.CalligraphyFontActivity;
+import com.cinatic.demo2.dialogs.forgotpass.ForgotPassDialogFragment;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.activities.introduction.IntroductionActivity;
 import com.cinatic.demo2.activities.main.MainActivity;
@@ -37,6 +39,8 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
     EditText mPasswordEditText;
     @BindView(R.id.container_login)
     View mContainer;
+    @BindView(R.id.progressbar_login)
+    ProgressBar mProgressBar;
 
     private Unbinder mUnbinder;
     private LoginPresenter mPresenter;
@@ -61,9 +65,9 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
     @Override
     public void showLoading(boolean isLoading) {
         if (isLoading) {
-            mProgressButton.enableLoadingState();
+            mProgressBar.setVisibility(View.VISIBLE);
         } else {
-            mProgressButton.disableLoadingState();
+            mProgressBar.setVisibility(View.GONE);
         }
     }
 
@@ -102,7 +106,8 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
 
     @OnClick(R.id.forgot_pass_login)
     public void onForgetPassClick() {
-        directToRegisterActivity();
+        ForgotPassDialogFragment forgotPassDialog = ForgotPassDialogFragment.newInstance();
+        forgotPassDialog.show(getSupportFragmentManager(), "");
     }
 
     private boolean validate(){

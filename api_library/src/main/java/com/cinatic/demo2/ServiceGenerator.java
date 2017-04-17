@@ -30,8 +30,6 @@ public class ServiceGenerator {
     private static Context mContext;
 
     @Setter @Getter
-    private static String refreshToken;
-    @Setter @Getter
     private static String accessToken;
     @Setter @Getter
     final static int os = 1;

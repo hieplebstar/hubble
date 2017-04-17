@@ -90,6 +90,7 @@ public class SettingFragment extends ButterKnifeFragment implements SettingView{
     }
 
     public void doLogout() {
+        mPresenter.doLogout();
         startActivity(new Intent(getActivity(), LoginActivity.class));
         getActivity().finish();
     }

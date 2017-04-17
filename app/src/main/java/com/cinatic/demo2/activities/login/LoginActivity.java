@@ -8,12 +8,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
@@ -37,6 +39,8 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
     EditText mUserNameEditText;
     @BindView(R.id.password_login)
     EditText mPasswordEditText;
+    @BindView(R.id.checkbox_remember_login)
+    CheckBox mRememberCheckBox;
     @BindView(R.id.container_login)
     View mContainer;
     @BindView(R.id.progressbar_login)
@@ -94,7 +98,7 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
     @OnClick(R.id.progressbutton_login_continues)
     public void onLoginClick() {
         if (validate()){
-            mPresenter.doLogin(mUserNameEditText.getText().toString(), mPasswordEditText.getText().toString());
+            mPresenter.doLogin(mUserNameEditText.getText().toString(), mPasswordEditText.getText().toString(), mRememberCheckBox.isChecked());
         }
     }
 
@@ -102,7 +106,6 @@ public class LoginActivity extends CalligraphyFontActivity implements LoginView 
     public void onCreateAccountClick() {
         directToRegisterActivity();
     }
-
 
     @OnClick(R.id.forgot_pass_login)
     public void onForgetPassClick() {

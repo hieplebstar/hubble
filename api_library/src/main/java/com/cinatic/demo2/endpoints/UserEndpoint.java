@@ -1,15 +1,14 @@
 package com.cinatic.demo2.endpoints;
 
 import com.cinatic.demo2.models.AuthenticationDTO;
-import com.cinatic.demo2.models.RefreshTokenDTO;
 import com.cinatic.demo2.models.RegisterDTO;
 import com.cinatic.demo2.models.ResetPasswordDTO;
 import com.cinatic.demo2.models.UpdatePasswordDTO;
 import com.cinatic.demo2.models.responses.AuthenticationToken;
-import com.cinatic.demo2.models.responses.UpdatePasswordResponse;
-import com.cinatic.demo2.models.responses.WrapperResponse;
 import com.cinatic.demo2.models.responses.RegisterResponse;
+import com.cinatic.demo2.models.responses.UpdatePasswordResponse;
 import com.cinatic.demo2.models.responses.UserInfo;
+import com.cinatic.demo2.models.responses.WrapperResponse;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -35,7 +34,7 @@ public interface UserEndpoint {
     Call<WrapperResponse<UserInfo>> getUserInfo(@Query("access_token") String accessToken);
 
     @GET("users/authenticate")
-    Call<WrapperResponse<AuthenticationToken>> refreshToken(@Body RefreshTokenDTO refreshTokenDTO);
+    Call<WrapperResponse<AuthenticationToken>> refreshToken(@Query("refresh_token") String refreshToken);
 
     @POST("users/account/recover_password")
     Call<WrapperResponse<ResponseBody>> resetPassword(@Body ResetPasswordDTO resetPasswordDTO);

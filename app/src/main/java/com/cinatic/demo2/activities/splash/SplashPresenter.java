@@ -1,10 +1,13 @@
-package com.cinatic.demo2.activities.login;
+package com.cinatic.demo2.activities.splash;
 
 
 import com.android.appkit.presenter.EventListeningPresenter;
 import com.cinatic.demo2.AppApplication;
+import com.cinatic.demo2.activities.login.LoginView;
 import com.cinatic.demo2.events.UserDoLoginEvent;
 import com.cinatic.demo2.events.UserDoLoginReturnEvent;
+import com.cinatic.demo2.events.UserDoRefreshTokenEvent;
+import com.cinatic.demo2.events.UserDoRefreshTokenReturnEvent;
 import com.cinatic.demo2.events.UserDoResetPasswordEvent;
 import com.cinatic.demo2.events.UserDoResetPasswordReturnEvent;
 import com.cinatic.demo2.events.show.ShowFeedbackMessageEvent;
@@ -16,34 +19,23 @@ import org.greenrobot.eventbus.Subscribe;
 /**
  * Created by HiepLe on 7/6/2016.
  */
-public class LoginPresenter extends EventListeningPresenter<LoginView> {
+public class SplashPresenter extends EventListeningPresenter<SplashView> {
 
     @Subscribe
-    public void onEvent(UserDoLoginReturnEvent event) {
+    public void onEvent(UserDoRefreshTokenReturnEvent event) {
         view.showLoading(false);
         view.directToMainActivity();
-    }
-
-    @Subscribe
-    public void onEvent(UserDoResetPasswordReturnEvent event) {
-        view.showLoading(false);
-        view.showSnackBar(AppApplication.getStringResource(R.string.reset_pass_success));
-    }
-
-    @Subscribe
-    public void onEvent(UserDoResetPasswordEvent event) {
-        view.showLoading(true);
     }
 
     @Subscribe
     public void onShowFeedbackMessageEvent(ShowFeedbackMessageEvent event) {
         view.showLoading(false);
         view.showSnackBar(event.getMessage());
+        view.directToLoginActivity();
     }
 
-    public void doLogin(String userName, String password, boolean isRemember) {
+    public void doLogin(String refreshToken) {
         view.showLoading(true);
-        post(new UserDoLoginEvent(userName, password, 0, ""));
-        new SettingPreferences().putAutoLogin(isRemember);
+        post(new UserDoRefreshTokenEvent(refreshToken));
     }
 }

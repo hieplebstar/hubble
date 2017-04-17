@@ -2,20 +2,11 @@ package com.cinatic.demo2.manager;
 
 import com.cinatic.demo2.ServiceGenerator;
 import com.cinatic.demo2.endpoints.DeviceEndpoint;
-import com.cinatic.demo2.endpoints.UserEndpoint;
 import com.cinatic.demo2.handlers.ResponseWrapperCallBackHandler;
 import com.cinatic.demo2.manager.base.BaseManager;
 import com.cinatic.demo2.manager.base.BaseResponseReceivedListener;
-import com.cinatic.demo2.models.AuthenticationDTO;
-import com.cinatic.demo2.models.RefreshTokenDTO;
-import com.cinatic.demo2.models.RegisterDTO;
-import com.cinatic.demo2.models.ResetPasswordDTO;
 import com.cinatic.demo2.models.UpdateDeviceDTO;
-import com.cinatic.demo2.models.UpdatePasswordDTO;
-import com.cinatic.demo2.models.responses.AuthenticationToken;
 import com.cinatic.demo2.models.responses.Device;
-import com.cinatic.demo2.models.responses.RegisterResponse;
-import com.cinatic.demo2.models.responses.UserInfo;
 import com.cinatic.demo2.models.responses.WrapperResponse;
 
 import java.util.List;

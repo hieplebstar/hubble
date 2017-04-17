@@ -7,6 +7,8 @@ import com.cinatic.demo2.events.UserDoLoadInfoEvent;
 import com.cinatic.demo2.events.UserDoLoadInfoReturnEvent;
 import com.cinatic.demo2.events.UserDoLoginEvent;
 import com.cinatic.demo2.events.UserDoLoginReturnEvent;
+import com.cinatic.demo2.events.UserDoRefreshTokenEvent;
+import com.cinatic.demo2.events.UserDoRefreshTokenReturnEvent;
 import com.cinatic.demo2.events.UserDoRegisterEvent;
 import com.cinatic.demo2.events.UserDoRegisterReturnedEvent;
 import com.cinatic.demo2.events.UserDoResetPasswordEvent;
@@ -60,6 +62,17 @@ public class UserPluginController extends EventPluginController{
         }
     };
 
+    UserManager.OnRefreshTokenListener onRefreshTokenListener = new UserManager.OnRefreshTokenListener() {
+        @Override
+        public void onFailure(Throwable error) {
+            handleError(error);
+        }
+
+        @Override
+        public void onSuccess(AuthenticationToken result) {
+            post(new UserDoRefreshTokenReturnEvent());
+        }
+    };
 
 
     UserManager.OnGetUserInfoListener onGetUserInfoListener = new UserManager.OnGetUserInfoListener() {
@@ -106,6 +119,11 @@ public class UserPluginController extends EventPluginController{
     @Subscribe
     public void onEvent(UserDoRegisterEvent event){
         mUserManager.register(event.getUsername(), event.getEmail(), event.getPassword(), event.getConfirmPassword(), onRegisterListener);
+    }
+
+    @Subscribe
+    public void onEvent(UserDoRefreshTokenEvent event){
+        mUserManager.refreshToken(event.getRefreshToken(), onRefreshTokenListener);
     }
 
     @Subscribe

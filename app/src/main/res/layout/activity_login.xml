@@ -149,6 +149,7 @@
                         android:background="@color/transparent"
                         android:gravity="start|center_vertical"
                         android:hint="@string/email_label"
+                        android:inputType="text"
                         android:maxLines="1" />
                 </LinearLayout>
 
@@ -159,7 +160,7 @@
                     android:background="@drawable/bg_white_border_all"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <ImageViewlucydev
                         android:layout_width="@dimen/Android_Design_rhythmTwoThirds"
                         android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
                         android:layout_gravity="center"
@@ -217,8 +218,8 @@
                     android:id="@+id/create_account_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/Android_Design_rhythmThird"
                     android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/Android_Design_rhythmThird"
                     android:gravity="start|center_vertical"
                     android:maxLines="1"
                     android:text="@string/create_account"

@@ -17,7 +17,7 @@ public class DeviceEventData {
     private String file;
 
     @SerializedName("file_type")
-    private String fileType;
+    private int fileType;
 
     @SerializedName("created_date")
     private String createdDate;

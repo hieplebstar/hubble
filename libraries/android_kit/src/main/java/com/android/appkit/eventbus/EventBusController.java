@@ -85,7 +85,7 @@ public abstract class EventBusController{
 
     public void unregisterSubscriber(Object subscriber) {
         if(!eventSubscribers.contains(subscriber)) return;
-        eventSubscribers.remove(subscriber.getClass());
+        eventSubscribers.remove(subscriber);
         EventBus.getDefault().unregister(subscriber);
     }
 }

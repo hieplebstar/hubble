@@ -19,6 +19,7 @@ import com.cinatic.demo2.fragments.homedevice.DevicesView;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.models.responses.Device;
 import com.cinatic.demo2.models.responses.DeviceEvent;
+import com.cinatic.demo2.models.responses.DeviceEventData;
 import com.cinatic.demo2.views.adapters.DeviceListAdapter;
 import com.cinatic.demo2.views.adapters.EventListAdapter;
 
@@ -26,7 +27,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class EventFragment extends ButterKnifeFragment implements EventView, EventListAdapter.OnClickItemListener{
+public class EventFragment extends ButterKnifeFragment implements EventView, EventListAdapter.OnClickItemListener, EventListAdapter.OnScrollListener{
 
     private final int WIFI_REQUEST_CODE = 0;
 
@@ -61,8 +62,9 @@ public class EventFragment extends ButterKnifeFragment implements EventView, Eve
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setListener(this);
+        mAdapter.setScrollListener(this);
         mPresenter.start(this);
-        loadData();
+        mPresenter.loadEventList();
     }
 
     @Override
@@ -74,15 +76,20 @@ public class EventFragment extends ButterKnifeFragment implements EventView, Eve
     @Override
     public void showEventList(List<DeviceEvent> eventList) {
         if (eventList == null) return;
-        mAdapter.addItems(eventList);
-    }
-
-    private void loadData() {
-        mPresenter.loadEventList();
+        mAdapter.setItems(eventList);
     }
 
     @Override
     public void onClickEvent(DeviceEvent item) {
-//        mPresenter.showDetail(item.getId(), item.getName(), item.getDeviceId());
+    }
+
+    @Override
+    public void onClickPlayButton(DeviceEventData item) {
+        mPresenter.playVideo(item.getFile());
+    }
+
+    @Override
+    public void onReachBottom() {
+        mPresenter.loadMoreEvent();
     }
 }

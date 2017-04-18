@@ -18,6 +18,7 @@ import com.cinatic.demo2.plugincontroller.show.HomeDevicePluginController;
 import com.cinatic.demo2.plugincontroller.show.HomeEventPluginController;
 import com.cinatic.demo2.plugincontroller.show.SettingPluginController;
 import com.cinatic.demo2.plugincontroller.show.SetupWelcomePluginController;
+import com.cinatic.demo2.plugincontroller.show.VideoPlayPluginController;
 
 /**
  * Created by HiepLe on 4/4/2017.
@@ -32,6 +33,7 @@ public class MainEventBusController extends EventBusController {
                 new DeviceFeaturePluginController(),
                 new HomeDevicePluginController(),
                 new HomeEventPluginController(),
+                new VideoPlayPluginController(),
                 new SettingPluginController(),
                 new SetupWelcomePluginController(),
                 new DeviceActivatedPluginController(),

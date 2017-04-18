@@ -18,6 +18,16 @@
             android:adjustViewBounds="true"
             android:src="@drawable/camera_default" />
 
+        <ImageView
+            android:id="@+id/imageview_event_item_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_play"
+            android:tint="@color/colorAccent"
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/textview_event_item_time"
             android:layout_width="wrap_content"

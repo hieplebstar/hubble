@@ -42,8 +42,6 @@ public class VideoPlayFragment extends ButterKnifeFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mWebView.loadUrl(getArguments().getString(EXTRA_VIDEO_URL));
-        WebSettings webSettings = mWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
     }
 
     @Override

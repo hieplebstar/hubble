@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface DevicesView {
     void showDeviceList(List<Device> deviceList);
+    void showLoading(boolean isLoading);
+    void showSnackBar(String message);
 }

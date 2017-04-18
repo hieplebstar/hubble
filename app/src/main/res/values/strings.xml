@@ -55,4 +55,7 @@
 
     <!--Device feature-->
     <string name="tap_to_talk">Tap To Talk</string>
+
+    <!--Events-->
+    <string name="events_label">Events</string>
 </resources>

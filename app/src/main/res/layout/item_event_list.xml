@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/Android_Design_rhythmThird">
+
+        <ImageView
+            android:id="@+id/imageview_event_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/camera_default" />
+
+        <TextView
+            android:id="@+id/textview_event_item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Android_Design_rhythmThird"
+            android:textAppearance="@style/App.TextAppearance.MediumBlack" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/Android_Design_rhythmThird"
+        android:paddingLeft="@dimen/Android_Design_rhythmSixth"
+        android:paddingRight="@dimen/Android_Design_rhythmSixth">
+
+        <TextView
+            android:id="@+id/textview_event_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/textview_event_item_type"
+            android:textAppearance="@style/App.TextAppearance.MediumGrey" />
+
+        <TextView
+            android:id="@+id/textview_event_item_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textAppearance="@style/App.TextAppearance.MediumGrey" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Border_Height"
+        android:background="@color/gray" />
+
+</LinearLayout>
+
+

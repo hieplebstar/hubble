@@ -1,6 +1,7 @@
 package com.cinatic.demo2.fragments.bottomtab;
 import com.android.appkit.presenter.EventListeningPresenter;
 import com.cinatic.demo2.events.show.ShowHomeDeviceEvent;
+import com.cinatic.demo2.events.show.ShowHomeEventEvent;
 
 /**
  * Created by HiepLe on 8/12/2016.
@@ -27,6 +28,7 @@ public class BottomTabPresenter extends EventListeningPresenter<BottomTabView> {
             case NOTIFICATION_TAB:
                 break;
             case TIMETABLE_TAB:
+                post(new ShowHomeEventEvent());
                 break;
         }
     }

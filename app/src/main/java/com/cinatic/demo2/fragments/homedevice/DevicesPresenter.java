@@ -21,6 +21,7 @@ public class DevicesPresenter extends EventListeningPresenter<DevicesView> {
 
     @Subscribe
     public void onEvent(DeviceListDoReturnEvent event) {
+        view.showLoading(false);
         if(event.getDeviceList() == null || event.getDeviceList().isEmpty()){
             post(new ShowSetupWelcomeEvent());
         } else {
@@ -29,6 +30,7 @@ public class DevicesPresenter extends EventListeningPresenter<DevicesView> {
     }
 
     public void loadDeviceList(){
+        view.showLoading(true);
         post(new DeviceListDoLoadEvent());
     }
 

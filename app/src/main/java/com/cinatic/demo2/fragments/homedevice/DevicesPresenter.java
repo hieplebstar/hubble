@@ -24,7 +24,7 @@ public class DevicesPresenter extends EventListeningPresenter<DevicesView> {
         if(event.getDeviceList() == null || event.getDeviceList().isEmpty()){
             post(new ShowSetupWelcomeEvent());
         } else {
-            view.showDeviceList(new ArrayList<DeviceListItem>());
+            view.showDeviceList(event.getDeviceList());
         }
     }
 
@@ -32,8 +32,8 @@ public class DevicesPresenter extends EventListeningPresenter<DevicesView> {
         post(new DeviceListDoLoadEvent());
     }
 
-    public void showDetail(){
-        post(new ShowDeviceInnerEvent());
+    public void showDetail(String id, String name, String deviceId){
+        post(new ShowDeviceInnerEvent(id, name, deviceId));
     }
 
     void showSetupResult(){

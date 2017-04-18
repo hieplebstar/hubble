@@ -15,7 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/camera_default_bg" />
+            android:src="@drawable/camera_default" />
+
+        <TextView
+            android:id="@+id/textview_device_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Android_Design_rhythmThird"
+            android:textAppearance="@style/App.TextAppearance.MediumWhite"/>
 
         <ImageView
             android:layout_width="@dimen/Android_Design_rhythm"

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.cinatic.demo2.base.fragment.ButterKnifeFragment;
 import com.cinatic.demo2.hubble.R;
 import com.cinatic.demo2.models.DeviceListItem;
+import com.cinatic.demo2.models.responses.Device;
 import com.cinatic.demo2.views.adapters.DeviceListAdapter;
 
 import java.util.List;
@@ -93,7 +94,7 @@ public class DevicesFragment extends ButterKnifeFragment implements DevicesView,
     }
 
     @Override
-    public void showDeviceList(List<DeviceListItem> deviceList) {
+    public void showDeviceList(List<Device> deviceList) {
         if (deviceList == null) return;
         mAdapter.setItems(deviceList);
     }
@@ -103,7 +104,7 @@ public class DevicesFragment extends ButterKnifeFragment implements DevicesView,
     }
 
     @Override
-    public void onClickDevice(DeviceListItem item) {
-        mPresenter.showDetail();
+    public void onClickDevice(Device item) {
+        mPresenter.showDetail(item.getId(), item.getName(), item.getDeviceId());
     }
 }

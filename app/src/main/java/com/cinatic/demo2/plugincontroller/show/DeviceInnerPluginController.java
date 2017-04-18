@@ -11,6 +11,8 @@ import org.greenrobot.eventbus.Subscribe;
 
 public class DeviceInnerPluginController extends AnimatingFragmentPluginController<ShowDeviceInnerEvent, DeviceInnerFragment> {
 
+    private String mTitle;
+
     @Subscribe
     public void onEvent(ShowDeviceInnerEvent event) {
         super.onEvent(event);
@@ -18,7 +20,7 @@ public class DeviceInnerPluginController extends AnimatingFragmentPluginControll
 
     @Override
     protected String createActionBarTitle() {
-        return AppApplication.getStringResource(R.string.devices_label);
+        return mTitle;
     }
 
     @Override
@@ -33,6 +35,7 @@ public class DeviceInnerPluginController extends AnimatingFragmentPluginControll
 
     @Override
     protected DeviceInnerFragment createFragment(ShowDeviceInnerEvent event) {
+        mTitle = event.getName();
         return DeviceInnerFragment.newInstance();
     }
 }

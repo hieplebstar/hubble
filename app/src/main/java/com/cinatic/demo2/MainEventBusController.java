@@ -6,7 +6,6 @@ import com.android.appkit.eventbus.EventBusController;
 import java.util.Arrays;
 import java.util.List;
 
-import com.cinatic.demo2.plugincontroller.DeviceListPluginController;
 import com.cinatic.demo2.plugincontroller.DevicePluginController;
 import com.cinatic.demo2.plugincontroller.UserDevicePluginController;
 import com.cinatic.demo2.plugincontroller.UserPluginController;
@@ -33,7 +32,6 @@ public class MainEventBusController extends EventBusController {
                 new SettingPluginController(),
                 new SetupWelcomePluginController(),
                 new DeviceActivatedPluginController(),
-                new DeviceListPluginController(),
                 new DevicePluginController(),
                 new UserPluginController(),
                 new UserDevicePluginController()

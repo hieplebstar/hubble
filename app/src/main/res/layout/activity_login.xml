@@ -160,7 +160,7 @@
                     android:background="@drawable/bg_white_border_all"
                     android:orientation="horizontal">
 
-                    <ImageViewlucydev
+                    <ImageView
                         android:layout_width="@dimen/Android_Design_rhythmTwoThirds"
                         android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
                         android:layout_gravity="center"

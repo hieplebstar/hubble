@@ -33,6 +33,33 @@
                 android:textAllCaps="true"
                 android:textAppearance="@style/App.TextAppearance.LargeGrey" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Android_Design_rhythmThird"
+                android:background="@drawable/bg_white_border_all"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/Android_Design_rhythmTwoThirds"
+                    android:layout_height="@dimen/Android_Design_rhythmTwoThirds"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/Android_Design_rhythmSixth"
+                    android:padding="@dimen/Android_Design_rhythmTwelfth"
+                    android:src="@drawable/ic_username" />
+
+                <EditText
+                    android:id="@+id/username_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/Android_Design_rhythmSixth"
+                    android:background="@color/transparent"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/username_label"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

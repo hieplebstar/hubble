@@ -34,6 +34,8 @@ public class RegisterActivity extends CalligraphyFontActivity implements Registe
     ProgressButton mProgressButton;
     @BindView(R.id.textview_register_agree)
     TextView mAgreeTextView;
+    @BindView(R.id.username_register)
+    EditText mUserNameEditText;
     @BindView(R.id.email_register)
     EditText mEmailEditText;
     @BindView(R.id.password_register)
@@ -88,7 +90,7 @@ public class RegisterActivity extends CalligraphyFontActivity implements Registe
     @OnClick(R.id.progressbutton_register_next)
     public void onRegisterClick() {
         if (validate()) {
-            mPresenter.register(StringUtils.getUserNameFromEmail(mEmailEditText.getText().toString()),
+            mPresenter.register(mUserNameEditText.getText().toString(),
                     mEmailEditText.getText().toString(),
                     mPasswordEditText.getText().toString(),
                     mConfirmEditText.getText().toString());
@@ -108,9 +110,15 @@ public class RegisterActivity extends CalligraphyFontActivity implements Registe
     }
 
     private boolean validate() {
+        String userName = mUserNameEditText.getText().toString();
         String email = mEmailEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
         String passwordConfirm = mConfirmEditText.getText().toString();
+        if (TextUtils.isEmpty(userName)) {
+            showSnackBar(AppApplication.getStringResource(R.string.warning_username));
+            return false;
+
+        }
         if (!StringUtils.validateEmail(email)) {
             showSnackBar(AppApplication.getStringResource(R.string.warning_email));
             return false;
